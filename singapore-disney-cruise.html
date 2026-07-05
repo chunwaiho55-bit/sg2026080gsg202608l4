@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>新加坡 × 迪士尼郵輪之旅 · 2026年8月</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#081a30;--navy-900:#0b2038;--navy-800:#122a44;--navy-700:#173251;
+    --teal:#159aae;--teal-bright:#2fc0d4;
+    --gold:#f5b841;--gold-soft:#ffd880;
+    --coral:#ef7f68;--coral-soft:#f7a88f;
+    --cream:#fbf6ec;--paper:#ffffff;
+    --ink:#15263d;--ink-soft:#3d5069;--mist:#7c8ca2;--line:#e7ded0;
+    --shadow:0 18px 40px -22px rgba(11,32,56,.45);
+    --shadow-sm:0 8px 20px -14px rgba(11,32,56,.4);
+    --f-disp:"Fredoka","Noto Sans TC",system-ui,sans-serif;
+    --f-body:"Noto Sans TC","Fredoka",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:var(--f-body);color:var(--ink);
+    background:radial-gradient(1200px 500px at 80% -8%, #fdeecb 0%, rgba(253,238,203,0) 55%),
+      linear-gradient(180deg,#fdf3e0 0%, var(--cream) 22%, #f4ede0 100%);
+    line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:clip;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero{position:relative;padding:clamp(2.8rem,8vw,4.2rem) 1.25rem 0;text-align:center;color:#fff;
+    background:radial-gradient(120% 90% at 50% 8%, #1c4a6e 0%, #123a5b 34%, #0d2946 60%, #0a1d34 100%);
+    overflow:hidden;isolation:isolate;}
+  .stars{position:absolute;inset:0;z-index:1;pointer-events:none}
+  .star{position:absolute;width:2px;height:2px;border-radius:50%;background:#fff;opacity:.8;
+    box-shadow:0 0 6px 1px rgba(255,255,255,.55);animation:tw 3.5s ease-in-out infinite}
+  @keyframes tw{0%,100%{opacity:.15;transform:scale(.7)}50%{opacity:.95;transform:scale(1)}}
+  .hero-inner{position:relative;z-index:3;max-width:680px;margin:0 auto}
+  .eyebrow{font-family:var(--f-disp);letter-spacing:.42em;font-size:.72rem;font-weight:600;
+    text-transform:uppercase;color:var(--gold-soft);padding-left:.42em}
+  .hero h1{font-family:var(--f-body);font-weight:900;font-size:clamp(2.15rem,8.5vw,3.7rem);
+    line-height:1.12;margin:.5rem 0 .2rem;letter-spacing:.01em;text-shadow:0 2px 24px rgba(0,0,0,.35)}
+  .hero h1 .amp{color:var(--gold);font-family:var(--f-disp);font-weight:500;padding:0 .12em}
+  .hero-sub{font-family:var(--f-disp);font-weight:500;font-size:clamp(1rem,3.6vw,1.35rem);
+    color:var(--teal-bright);letter-spacing:.08em}
+  .hero-sub .spark{color:var(--gold-soft)}
+  .hero-meta{margin-top:.8rem;font-size:.95rem;color:#cfe0ef;font-weight:500}
+  .hero-meta b{color:#fff;font-weight:700}
+  .countdown{display:flex;gap:.55rem;justify-content:center;margin:1.4rem auto .5rem}
+  .cd-box{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);
+    border-radius:16px;padding:.55rem .35rem .4rem;min-width:62px}
+  .cd-box b{display:block;font-family:var(--f-disp);font-weight:700;font-size:1.65rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
+  .cd-box span{font-size:.68rem;color:var(--gold-soft);letter-spacing:.12em}
+  .cd-label{font-size:.78rem;color:#a9c0d6;letter-spacing:.05em;margin-bottom:.2rem}
+  .scene{position:relative;z-index:2;margin-top:1.1rem;line-height:0;pointer-events:none}
+  .scene svg{width:100%;height:auto;display:block}
+  .win{fill:var(--gold-soft);opacity:.85}.ship-body{fill:#1b3a5c}.skyline{fill:#091d34}
+  .wheel{fill:none;stroke:#0c2440;stroke-width:3.5}
+  .route{fill:none;stroke:rgba(120,214,228,.55);stroke-width:2;stroke-dasharray:2 9;stroke-linecap:round;animation:sail 22s linear infinite}
+  @keyframes sail{to{stroke-dashoffset:-220}}
+  .sea{fill:url(#seaGrad)}
+
+  /* ---------- TABS ---------- */
+  .tabs-wrap{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.94);backdrop-filter:blur(10px);
+    padding:.65rem 1rem;border-bottom:1px solid rgba(231,222,208,.75);box-shadow:0 6px 18px -16px rgba(11,32,56,.5)}
+  .tabs{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.3rem;box-shadow:var(--shadow-sm)}
+  .tab{font-family:var(--f-body);font-weight:700;font-size:.85rem;color:var(--ink-soft);cursor:pointer;white-space:nowrap;
+    border:0;background:transparent;border-radius:999px;padding:.6rem .25rem;transition:color .2s,background .25s;letter-spacing:.01em}
+  .tab.active{color:#fff;background:linear-gradient(140deg,var(--navy-700),var(--teal));box-shadow:0 6px 14px -6px rgba(21,50,60,.6)}
+  .tab:active{transform:scale(.97)}
+
+  /* ---------- PANELS ---------- */
+  .panel{display:none;animation:fade .35s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .wrap{max-width:820px;margin:0 auto;padding:0 1.15rem}
+  .sec-head{text-align:center;margin:1.7rem 0 1.3rem}
+  .sec-head .kk{font-family:var(--f-disp);letter-spacing:.34em;font-size:.68rem;font-weight:600;text-transform:uppercase;color:var(--teal);padding-left:.34em}
+  .sec-head h2{font-weight:900;font-size:clamp(1.5rem,5.5vw,2.05rem);color:var(--navy-800);margin-top:.25rem}
+  .sec-head p{color:var(--ink-soft);font-size:.9rem;margin-top:.3rem}
+
+  .toolbar{display:flex;justify-content:flex-end;margin-bottom:1rem}
+  .toggle-all{font-family:var(--f-body);font-weight:700;font-size:.82rem;color:var(--navy-700);cursor:pointer;
+    background:#fff;border:1px solid var(--line);padding:.5rem .95rem;border-radius:999px;box-shadow:var(--shadow-sm);transition:transform .15s ease,background .2s}
+  .toggle-all:hover{background:var(--cream)}.toggle-all:active{transform:scale(.96)}
+
+  /* ---------- TIMELINE ---------- */
+  .timeline{position:relative;padding-left:3.35rem}
+  .rail{position:absolute;left:1.15rem;top:1.4rem;bottom:1.4rem;width:0;border-left:2px dashed #c9d8e6;z-index:0}
+  .day{position:relative;margin-bottom:1rem}
+  .marker{position:absolute;left:-3.35rem;top:1.05rem;width:2.3rem;height:2.3rem;border-radius:50%;
+    display:grid;place-items:center;font-size:1.05rem;background:#fff;z-index:2;
+    box-shadow:0 0 0 4px var(--cream), var(--shadow-sm);border:2px solid var(--teal)}
+  .day.flight .marker{border-color:var(--teal)}.day.cruise .marker{border-color:var(--gold)}.day.city .marker{border-color:var(--coral)}
+  .card{background:var(--paper);border-radius:22px;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.8)}
+  .day.flight .card{border-top:4px solid var(--teal)}.day.cruise .card{border-top:4px solid var(--gold)}.day.city .card{border-top:4px solid var(--coral)}
+  .day-head{width:100%;border:0;background:transparent;cursor:pointer;display:flex;align-items:center;gap:.85rem;padding:1rem 1.05rem;text-align:left;font-family:var(--f-body)}
+  .badge{flex:0 0 auto;width:52px;text-align:center;line-height:1;border-radius:14px;padding:.4rem 0;color:#fff}
+  .day.flight .badge{background:linear-gradient(150deg,var(--teal),#0f7f92)}.day.cruise .badge{background:linear-gradient(150deg,var(--gold),#e19b1f)}.day.city .badge{background:linear-gradient(150deg,var(--coral),#dc6650)}
+  .badge small{display:block;font-size:.55rem;letter-spacing:.16em;opacity:.9}
+  .badge b{font-family:var(--f-disp);font-weight:700;font-size:1.4rem}
+  .head-txt{flex:1 1 auto;min-width:0}
+  .head-date{font-size:.76rem;color:var(--mist);font-weight:500;letter-spacing:.02em}
+  .head-title{font-weight:700;font-size:1.12rem;color:var(--navy-800);line-height:1.25}
+  .head-tag{display:inline-block;margin-top:.28rem;font-family:var(--f-disp);font-weight:500;font-size:.66rem;letter-spacing:.06em;color:#b07d10;background:#fdf1d6;border-radius:999px;padding:.12rem .55rem}
+  .day.flight .head-tag{color:#0e6d7e;background:#dcf3f6}.day.city .head-tag{color:#c1543c;background:#fce4dc}
+  .chev{flex:0 0 auto;color:var(--mist);font-size:1.1rem;transition:transform .35s ease;margin-left:.2rem}
+  .day.open .chev{transform:rotate(180deg)}
+  .body{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+  .day.open .body{grid-template-rows:1fr}
+  .body-in{overflow:hidden}.body-pad{padding:.2rem 1.05rem 1.15rem 1.05rem}
+  .sched{list-style:none;border-top:1px dashed var(--line);padding-top:.85rem}
+  .ev{display:flex;gap:.7rem;align-items:flex-start;padding:.42rem 0}
+  .ev-ic{flex:0 0 auto;width:1.85rem;height:1.85rem;border-radius:10px;display:grid;place-items:center;font-size:.95rem;background:var(--cream)}
+  .ev-main{display:flex;flex-direction:column;min-width:0;flex:1}
+  .ev-time{font-family:var(--f-disp);font-weight:600;font-size:.82rem;color:var(--teal);letter-spacing:.02em}
+  .day.cruise .ev-time{color:#c98a10}.day.city .ev-time{color:var(--coral)}
+  .ev-desc{font-size:.9rem;color:var(--ink);line-height:1.45}
+  .ev-desc .in{font-size:.72rem;color:#0e7285;background:#dcf3f6;border-radius:6px;padding:.02rem .38rem;margin-left:.25rem;white-space:nowrap}
+  .ev-desc .out{font-size:.72rem;color:#2f8f3f;background:#e0f3e2;border-radius:6px;padding:.02rem .38rem;margin-left:.25rem;white-space:nowrap}
+  .ev-ref{margin-top:.9rem;font-size:.76rem;color:var(--ink-soft);background:linear-gradient(180deg,#fbf7ee,#f6efe2);border-radius:12px;padding:.55rem .7rem;border:1px solid var(--line)}
+  .ev-ref .s{color:var(--gold);font-weight:700}
+
+  /* consistent FOOD highlight across every day */
+  .ev.food{background:linear-gradient(180deg,#fff6ee,#fef0e5);border:1px solid #f6dcc9;border-left:3px solid var(--coral);border-radius:12px;padding:.55rem .6rem;margin:.32rem 0}
+  .ev.food .ev-ic{background:#fbdccc}
+  .ev.food .ev-time{color:#d9663f}
+  .food-alt{margin-top:.42rem;font-size:.77rem;color:#8a5a2b;background:#fbf0df;border:1px solid #f2ddbe;border-radius:8px;padding:.4rem .55rem;line-height:1.5}
+  .food-alt b{color:#a4611f}
+  .ev-note{margin-top:.4rem;font-size:.78rem;background:#e7f1fb;border:1px solid #cfe4f7;border-radius:8px;overflow:hidden}
+  .ev-note summary{cursor:pointer;list-style:none;padding:.42rem .55rem;color:#0b3f66;font-weight:700;display:flex;align-items:center;gap:.35rem;user-select:none}
+  .ev-note summary::-webkit-details-marker{display:none}
+  .ev-note summary::after{content:"▾";margin-left:auto;color:#5b8bb5;transition:transform .3s}
+  .ev-note[open] summary::after{transform:rotate(180deg)}
+  .ev-note summary:hover{background:#dbeafb}
+  .ev-note-body{padding:0 .55rem .5rem;color:#0e5a8a;line-height:1.5}
+  .ev-note-body b{color:#0b3f66}
+
+  /* ---------- BOARDING PASS ---------- */
+  .bp-toggle{display:flex;gap:.4rem;justify-content:center;margin-bottom:1rem}
+  .bp-btn{font-family:var(--f-body);font-weight:700;font-size:.85rem;padding:.5rem 1.2rem;border-radius:999px;border:1px solid var(--line);background:#fff;color:var(--ink-soft);cursor:pointer;transition:background .2s,color .2s}
+  .bp-btn.active{background:linear-gradient(140deg,var(--navy-700),var(--teal));color:#fff;border-color:transparent}
+  .boarding{display:none}.boarding.active{display:block;animation:fade .3s ease}
+  .bpass{background:linear-gradient(160deg,#0e2c4a,#123a5b);color:#fff;border-radius:20px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);max-width:460px;margin:0 auto}
+  .bpass-top{padding:1rem 1.2rem .5rem;display:flex;justify-content:space-between;align-items:flex-start}
+  .bpass-air{font-family:var(--f-disp);font-weight:600;letter-spacing:.03em;font-size:.95rem}
+  .bpass-air .sq{color:var(--gold-soft)}
+  .bpass-tkt{font-size:.66rem;color:#9fc0d8;font-family:var(--f-disp);letter-spacing:.1em;text-align:right}
+  .bpass-route{display:flex;align-items:center;justify-content:space-between;padding:.3rem 1.2rem 1rem;gap:.5rem}
+  .bp-city{text-align:center;min-width:0}
+  .bp-code{font-family:var(--f-disp);font-weight:700;font-size:1.9rem;line-height:1;color:#fff;display:block}
+  .bp-city small{display:block;font-size:.64rem;color:#9fc0d8;margin-top:.2rem}
+  .bp-time{display:block;font-family:var(--f-disp);font-weight:600;font-size:1rem;color:var(--gold-soft);margin-top:.3rem}
+  .bp-mid{flex:1;text-align:center;color:var(--teal-bright)}
+  .bp-mid .plane{font-size:1.15rem}
+  .bp-mid .dur{display:block;font-size:.58rem;color:#8fb0c8;margin-top:.15rem;letter-spacing:.04em}
+  .bpass-perf{border-top:2px dashed rgba(255,255,255,.28);position:relative;margin:0 .35rem}
+  .bpass-perf::before,.bpass-perf::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--cream)}
+  .bpass-perf::before{left:-13px}.bpass-perf::after{right:-13px}
+  .bpass-stub{display:grid;grid-template-columns:repeat(4,1fr);gap:.4rem;padding:.9rem 1.2rem 1.1rem}
+  .bp-item small{display:block;font-size:.58rem;color:#8fb0c8;letter-spacing:.06em;text-transform:uppercase;font-family:var(--f-disp)}
+  .bp-item b{font-size:.85rem;color:#fff;font-weight:600}
+  .bp-ok{color:#7ee0a6!important}
+
+  /* ---------- INFO CARDS ---------- */
+  .info-grid{display:grid;gap:1rem}
+  .info{background:var(--paper);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.8)}
+  .info-top{display:flex;align-items:center;gap:.7rem;padding:.95rem 1.1rem;color:#fff}
+  .info.h .info-top{background:linear-gradient(120deg,var(--coral),#d55f49)}
+  .info.c .info-top{background:linear-gradient(120deg,var(--gold),#dd9a1c)}
+  .info-top .em{font-size:1.3rem}
+  .info-top b{font-weight:700;font-size:1.05rem}
+  .info-top small{display:block;font-size:.68rem;opacity:.85;font-family:var(--f-disp);letter-spacing:.12em;text-transform:uppercase}
+  .info-body{padding:.95rem 1.1rem 1.1rem}
+  .row{display:flex;gap:.6rem;padding:.32rem 0;font-size:.88rem;border-bottom:1px dashed var(--line)}
+  .row:last-child{border-bottom:0}
+  .row .lab{flex:0 0 4.6rem;color:var(--mist);font-size:.8rem;font-weight:500}
+  .row .val{flex:1;color:var(--ink)}.row .val b{color:var(--navy-800)}
+  .pill{display:inline-block;font-family:var(--f-disp);font-size:.72rem;font-weight:500;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:.08rem .5rem;margin:.1rem .2rem .1rem 0;color:var(--ink-soft)}
+  .map-box{margin:.6rem -1.1rem -1.1rem;border-top:1px dashed var(--line)}
+  .map{width:100%;height:190px;border:0;display:block;background:#e9eef2}
+  .map-link{display:block;text-align:center;font-size:.78rem;padding:.6rem;color:var(--teal);font-weight:700;text-decoration:none;background:#f6f2ea}
+  .map-link:hover{background:#efe9dc}
+
+  /* ---------- SINGAPORE INFO ---------- */
+  .sg-grid{display:grid;gap:.85rem}
+  .sg{background:#fff;border-radius:18px;box-shadow:var(--shadow-sm);padding:1rem 1.1rem;border:1px solid rgba(255,255,255,.8);border-left:4px solid var(--teal)}
+  .sg.g{border-left-color:var(--gold)}.sg.c{border-left-color:var(--coral)}
+  .sg.wide{grid-column:1/-1}
+  .sg h4{font-size:1rem;color:var(--navy-800);display:flex;align-items:center;gap:.5rem;margin-bottom:.5rem;font-weight:700}
+  .sg h4 .e{font-size:1.2rem}
+  .sg p{font-size:.87rem;color:var(--ink-soft);line-height:1.62}
+  .sg p b{color:var(--navy-800)}
+  /* weather live */
+  .wx-now{display:flex;align-items:center;gap:.7rem;background:#e6f5f8;border:1px solid #c7e8ee;border-radius:12px;padding:.55rem .7rem;margin-bottom:.6rem}
+  .wx-now .wxe{font-size:1.6rem;line-height:1}
+  .wx-now .t{font-family:var(--f-disp);font-weight:700;font-size:1.45rem;color:#0e7285;line-height:1}
+  .wx-now .d{font-size:.8rem;color:var(--ink-soft)}.wx-now .d b{color:var(--navy-800)}
+  .retry{font-family:var(--f-body);font-weight:700;font-size:.74rem;color:var(--teal);background:#e6f5f8;border:1px solid #c7e8ee;border-radius:999px;padding:.3rem .75rem;cursor:pointer;transition:background .2s,transform .1s}
+  .retry:hover{background:#d5eef3}.retry:active{transform:scale(.96)}
+  .retry.sm{padding:.14rem .55rem;font-size:.7rem;vertical-align:middle}
+  /* fx */
+  .fx-rate{font-size:.82rem;color:var(--ink-soft);margin-bottom:.6rem}
+  .fx-rate b{color:var(--navy-800);font-family:var(--f-disp)}
+  .fx-rate span{color:var(--mist);font-size:.74rem}
+  .fx-row{display:flex;align-items:flex-end;gap:.5rem}
+  .fx-row label{flex:1;display:flex;flex-direction:column;font-size:.66rem;color:var(--mist);font-weight:700;letter-spacing:.06em}
+  .fx-row input{font-family:var(--f-disp);font-weight:600;font-size:1.05rem;color:var(--navy-800);border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;margin-top:.22rem;width:100%;background:#fff}
+  .fx-row input:focus{outline:2px solid var(--teal-bright);border-color:transparent}
+  .fx-eq{font-weight:700;color:var(--teal);font-size:1.1rem;padding-bottom:.55rem}
+  /* transport */
+  .tp-presets{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0 .7rem}
+  .tp-link{font-size:.78rem;font-weight:700;color:var(--teal);background:#e6f5f8;border:1px solid #c7e8ee;border-radius:999px;padding:.35rem .7rem;text-decoration:none}
+  .tp-link:hover{background:#d5eef3}
+  .tp-custom{display:flex;flex-wrap:wrap;gap:.4rem;align-items:center}
+  .tp-custom input{flex:1 1 38%;min-width:120px;font-size:.85rem;border:1px solid var(--line);border-radius:10px;padding:.5rem .6rem;background:#fff}
+  .tp-custom input:focus{outline:2px solid var(--teal-bright);border-color:transparent}
+  #tp-go{font-size:.8rem;font-weight:700;color:#fff;background:linear-gradient(140deg,var(--navy-700),var(--teal));border-radius:10px;padding:.55rem .8rem;text-decoration:none;white-space:nowrap}
+  /* warnings */
+  .warn{list-style:none;margin-top:.2rem}
+  .warn li{font-size:.85rem;color:var(--ink-soft);line-height:1.55;padding:.32rem 0 .32rem 1.1rem;position:relative;border-bottom:1px dashed var(--line)}
+  .warn li:last-child{border-bottom:0}
+  .warn li::before{content:"•";position:absolute;left:.1rem;color:var(--coral);font-weight:700}
+  .warn li b{color:#c1543c}
+
+  /* ---------- FOOTER ---------- */
+  footer{text-align:center;padding:2.8rem 1.25rem 3.2rem}
+  .foot-star{color:var(--gold);letter-spacing:.5em;font-size:.9rem}
+  footer h3{font-family:var(--f-body);font-weight:900;font-size:1.4rem;color:var(--navy-800);margin:.6rem 0 .2rem}
+  footer .en{font-family:var(--f-disp);font-weight:500;color:var(--teal);letter-spacing:.1em}
+  footer .note{max-width:460px;margin:1rem auto 0;font-size:.74rem;color:var(--mist);line-height:1.6}
+
+  @media(min-width:640px){.sg-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:760px){.info-grid{grid-template-columns:1fr 1fr}.info.c{grid-column:1/-1}}
+  @media(prefers-reduced-motion:reduce){.star,.route{animation:none}.panel,.boarding{animation:none}html{scroll-behavior:auto}}
+  :focus-visible{outline:3px solid var(--teal-bright);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="stars" id="stars" aria-hidden="true"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Family Voyage · 2026</p>
+    <h1>新加坡<span class="amp">×</span>迪士尼郵輪</h1>
+    <p class="hero-sub">Singapore <span class="spark">✦</span> Disney Adventure</p>
+    <p class="hero-meta">一家四口 · <b>香港 ⇄ 新加坡</b> · 8月9日–14日</p>
+    <div class="countdown" id="cd" aria-live="polite">
+      <div class="cd-box"><b id="cd-d">--</b><span>日 DAY</span></div>
+      <div class="cd-box"><b id="cd-h">--</b><span>時 HR</span></div>
+      <div class="cd-box"><b id="cd-m">--</b><span>分 MIN</span></div>
+      <div class="cd-box"><b id="cd-s">--</b><span>秒 SEC</span></div>
+    </div>
+    <p class="cd-label" id="cd-label">距離出發 · 2026年8月9日 09:05</p>
+  </div>
+
+  <div class="scene" aria-hidden="true">
+    <svg viewBox="0 0 1200 260" preserveAspectRatio="xMidYMax meet">
+      <defs><linearGradient id="seaGrad" x1="0" y1="0" x2="0" y2="1">
+        <stop offset="0" stop-color="#0e2c49"/><stop offset="1" stop-color="#081d33"/></linearGradient></defs>
+      <path class="route" d="M556,150 C700,92 950,88 1195,150"/>
+      <path class="route" d="M560,160 C720,116 940,116 1195,168" style="opacity:.6"/>
+      <g class="skyline">
+        <path d="M85,212 L85,144 L63,90 Q90,80 117,90 L95,144 L95,212 Z"/>
+        <path d="M144.5,212 L144.5,127 L120,60 Q150,49 180,60 L155.5,127 L155.5,212 Z"/>
+        <path d="M207.5,212 L207.5,155 L189,110 Q212,101 235,110 L216.5,155 L216.5,212 Z"/>
+        <rect x="690" y="150" width="20" height="62" rx="3"/><rect x="716" y="128" width="24" height="84" rx="3"/><rect x="746" y="162" width="18" height="50" rx="3"/>
+        <rect x="850" y="62" width="24" height="150"/><rect x="888" y="56" width="24" height="156"/><rect x="926" y="62" width="24" height="150"/>
+        <rect x="838" y="46" width="124" height="15" rx="7"/>
+        <rect x="980" y="140" width="20" height="72" rx="3"/><rect x="1006" y="120" width="24" height="92" rx="3"/><rect x="1036" y="152" width="18" height="60" rx="3"/>
+        <path d="M1088,158 L1074,212 M1132,158 L1146,212" stroke="#0c2440" stroke-width="4" fill="none"/>
+      </g>
+      <g>
+        <circle class="wheel" cx="1110" cy="120" r="52"/>
+        <g stroke="#0c2440" stroke-width="2.5">
+          <line x1="1110" y1="120" x2="1162" y2="120"/><line x1="1110" y1="120" x2="1147" y2="83"/><line x1="1110" y1="120" x2="1110" y2="68"/><line x1="1110" y1="120" x2="1073" y2="83"/>
+          <line x1="1110" y1="120" x2="1058" y2="120"/><line x1="1110" y1="120" x2="1073" y2="157"/><line x1="1110" y1="120" x2="1110" y2="172"/><line x1="1110" y1="120" x2="1147" y2="157"/>
+        </g>
+        <g fill="#0c2440">
+          <circle cx="1162" cy="120" r="4.5"/><circle cx="1147" cy="83" r="4.5"/><circle cx="1110" cy="68" r="4.5"/><circle cx="1073" cy="83" r="4.5"/>
+          <circle cx="1058" cy="120" r="4.5"/><circle cx="1073" cy="157" r="4.5"/><circle cx="1110" cy="172" r="4.5"/><circle cx="1147" cy="157" r="4.5"/><circle cx="1110" cy="120" r="6"/>
+        </g>
+      </g>
+      <rect class="sea" x="0" y="210" width="1200" height="50"/>
+      <path d="M0,222 Q60,216 120,222 T240,222 T360,222 T480,222 T600,222 T720,222 T840,222 T960,222 T1080,222 T1200,222" fill="none" stroke="#14406a" stroke-width="2" opacity=".6"/>
+      <g class="ship">
+        <rect class="ship-body" x="486" y="104" width="24" height="32" rx="5"/><rect class="ship-body" x="530" y="104" width="24" height="32" rx="5"/>
+        <rect x="486" y="104" width="24" height="8" rx="4" fill="#e5563f"/><rect x="530" y="104" width="24" height="8" rx="4" fill="#e5563f"/>
+        <rect class="ship-body" x="444" y="134" width="150" height="20" rx="5"/><rect class="ship-body" x="412" y="152" width="214" height="30" rx="5"/>
+        <path class="ship-body" d="M384,182 L646,182 L630,214 Q628,218 622,218 L408,218 Q402,218 400,214 L384,182 Z"/>
+        <g class="win">
+          <rect x="424" y="162" width="6" height="7" rx="1.5"/><rect x="440" y="162" width="6" height="7" rx="1.5"/><rect x="456" y="162" width="6" height="7" rx="1.5"/><rect x="472" y="162" width="6" height="7" rx="1.5"/>
+          <rect x="488" y="162" width="6" height="7" rx="1.5"/><rect x="504" y="162" width="6" height="7" rx="1.5"/><rect x="520" y="162" width="6" height="7" rx="1.5"/><rect x="536" y="162" width="6" height="7" rx="1.5"/>
+          <rect x="552" y="162" width="6" height="7" rx="1.5"/><rect x="568" y="162" width="6" height="7" rx="1.5"/><rect x="584" y="162" width="6" height="7" rx="1.5"/><rect x="600" y="162" width="6" height="7" rx="1.5"/>
+        </g>
+        <g class="win">
+          <circle cx="430" cy="198" r="2.6"/><circle cx="452" cy="198" r="2.6"/><circle cx="474" cy="198" r="2.6"/><circle cx="496" cy="198" r="2.6"/><circle cx="518" cy="198" r="2.6"/>
+          <circle cx="540" cy="198" r="2.6"/><circle cx="562" cy="198" r="2.6"/><circle cx="584" cy="198" r="2.6"/><circle cx="606" cy="198" r="2.6"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+</header>
+
+<!-- ===== TAB NAV ===== -->
+<div class="tabs-wrap">
+  <div class="tabs" role="tablist" aria-label="行程分頁">
+    <button class="tab active" role="tab" id="tab-1" aria-selected="true"  aria-controls="panel-itinerary" data-panel="panel-itinerary">行程表</button>
+    <button class="tab"        role="tab" id="tab-2" aria-selected="false" aria-controls="panel-info"      data-panel="panel-info">旅程資料</button>
+    <button class="tab"        role="tab" id="tab-3" aria-selected="false" aria-controls="panel-sg"        data-panel="panel-sg">新加坡資料</button>
+  </div>
+</div>
+
+<!-- ===== PANEL A · 行程表 ===== -->
+<section id="panel-itinerary" class="panel active" role="tabpanel" aria-labelledby="tab-1">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kk">Day by Day</p>
+      <h2>完整行程表</h2>
+    </div>
+
+    <div class="timeline">
+      <div class="rail" aria-hidden="true"></div>
+
+      <!-- DAY 1 -->
+      <article class="day flight open">
+        <div class="marker" aria-hidden="true">✈️</div>
+        <div class="card">
+          <button class="day-head" aria-expanded="true">
+            <span class="badge"><small>DAY</small><b>1</b></span>
+            <span class="head-txt">
+              <span class="head-date">8月9日 · 星期日</span>
+              <span class="head-title">抵達新加坡</span>
+              <span class="head-tag">✈ 出發日</span>
+            </span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="body"><div class="body-in"><div class="body-pad">
+            <ul class="sched">
+              <li class="ev"><span class="ev-ic">✈️</span><span class="ev-main"><span class="ev-time">09:05</span><span class="ev-desc">香港國際機場（T1）起飛 · 新加坡航空 經濟艙</span></span></li>
+              <li class="ev food"><span class="ev-ic">🥐</span><span class="ev-main"><span class="ev-time">早餐</span><span class="ev-desc">機上早午餐（輕食）</span></span></li>
+              <li class="ev"><span class="ev-ic">🛬</span><span class="ev-main"><span class="ev-time">12:55</span><span class="ev-desc">抵達新加坡樟宜機場，前往市區</span></span></li>
+              <li class="ev"><span class="ev-ic">🏨</span><span class="ev-main"><span class="ev-time">下午</span><span class="ev-desc">入住 Hotel Mi Rochor（89 Short Street）放低行李<span class="in">室內</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🍜</span><span class="ev-main"><span class="ev-time">午餐</span><span class="ev-desc">竹腳中心 Tekka Centre — 印度煎餅、椰漿飯、地道熟食<span class="in">熟食中心</span></span><span class="food-alt">💡 想食<b>中式／清淡</b>：Albert Centre 熟食中心（近 Bugis，有粥、海南雞飯、雲吞麵）</span></span></li>
+              <li class="ev"><span class="ev-ic">🎨</span><span class="ev-main"><span class="ev-time">下午</span><span class="ev-desc">漫步小印度 Little India，彩色小屋 House of Tan Teng Niah 打卡<span class="out">室外</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">☕</span><span class="ev-main"><span class="ev-time">下午茶</span><span class="ev-desc">甘榜格南 Kampong Glam · 哈芝巷 Haji Lane 特色 Cafe</span><span class="food-alt">💡 想<b>清淡</b>：Bugis 一帶港式茶餐廳、豆花糖水，或歎壺中式茶</span></span></li>
+              <li class="ev"><span class="ev-ic">🛍️</span><span class="ev-main"><span class="ev-time">傍晚</span><span class="ev-desc">步行至 Bugis Junction 逛街避暑<span class="in">室內</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🥟</span><span class="ev-main"><span class="ev-time">晚餐</span><span class="ev-desc">鼎泰豐（Bugis Junction 分店）</span></span></li>
+            </ul>
+            <div class="ev-ref"><span class="s">✦</span> 電子機票 E6GAE5 · 行李 25kg ｜ 酒店訂房編號 TQF08061（8/9 入住）</div>
+          </div></div></div>
+        </div>
+      </article>
+
+      <!-- DAY 2 -->
+      <article class="day cruise open">
+        <div class="marker" aria-hidden="true">🚢</div>
+        <div class="card">
+          <button class="day-head" aria-expanded="true">
+            <span class="badge"><small>DAY</small><b>2</b></span>
+            <span class="head-txt">
+              <span class="head-date">8月10日 · 星期一</span>
+              <span class="head-title">登船日</span>
+              <span class="head-tag">🚢 郵輪 Day 1</span>
+            </span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="body"><div class="body-in"><div class="body-pad">
+            <ul class="sched">
+              <li class="ev food"><span class="ev-ic">🥟</span><span class="ev-main"><span class="ev-time">早餐</span><span class="ev-desc">瑞春點心 Swee Choon — 酒店附近著名老字號茶樓點心<span class="in">室內</span></span></span></li>
+              <li class="ev"><span class="ev-ic">🧳</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">酒店退房</span></span></li>
+              <li class="ev"><span class="ev-ic">🛍️</span><span class="ev-main"><span class="ev-time">午後</span><span class="ev-desc">The Shoppes at Marina Bay Sands 逛街（距郵輪碼頭約 10 分鐘車程）<span class="in">室內</span></span><details class="ev-note"><summary>💡 碼頭 &amp; 行李小提示</summary><div class="ev-note-body"><b>碼頭附近最近嘅大型商場</b>就係 MBS；想室外可行埋隔籬 Gardens by the Bay。登船日一般需自行帶行李，建議 Grab 直達，碼頭餐飲有限，宜喺呢邊食飽先。</div></details></span></li>
+              <li class="ev food"><span class="ev-ic">☕</span><span class="ev-main"><span class="ev-time">下午茶</span><span class="ev-desc">MBS 商場歎下午茶（TWG Tea、鼎泰豐 MBS 店 等）</span></span></li>
+              <li class="ev"><span class="ev-ic">🚢</span><span class="ev-main"><span class="ev-time">16:00</span><span class="ev-desc">前往 Marina Bay Cruise Centre，登上 Disney Adventure</span></span></li>
+              <li class="ev"><span class="ev-ic">🎉</span><span class="ev-main"><span class="ev-time">傍晚</span><span class="ev-desc">探索郵輪：百老匯表演、泳池水上樂園、豪華餐飲</span></span></li>
+            </ul>
+            <div class="ev-ref"><span class="s">✦</span> 郵輪包百老匯表演、泳池 &amp; 水上滑梯、寬敞客房、24小時客房送餐、成人專屬活動、兒童及青少年會所</div>
+          </div></div></div>
+        </div>
+      </article>
+
+      <!-- DAY 3-4 MERGED -->
+      <article class="day cruise open">
+        <div class="marker" aria-hidden="true">🌊</div>
+        <div class="card">
+          <button class="day-head" aria-expanded="true">
+            <span class="badge"><small>DAY</small><b>3–4</b></span>
+            <span class="head-txt">
+              <span class="head-date">8月11–12日 · 星期二至三</span>
+              <span class="head-title">海上巡遊（兩日）</span>
+              <span class="head-tag">🚢 郵輪 Day 2–3</span>
+            </span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="body"><div class="body-in"><div class="body-pad">
+            <ul class="sched">
+              <li class="ev"><span class="ev-ic">🌊</span><span class="ev-main"><span class="ev-time">全日</span><span class="ev-desc">兩日全日海上巡遊 Days at Sea</span></span></li>
+              <li class="ev"><span class="ev-ic">🎭</span><span class="ev-main"><span class="ev-time">節目</span><span class="ev-desc">欣賞百老匯級音樂劇，然後跳進閃亮泳池暢泳</span></span></li>
+              <li class="ev food"><span class="ev-ic">🍽️</span><span class="ev-main"><span class="ev-time">美食</span><span class="ev-desc">高級餐廳、自助餐、池畔小食及 24 小時客房送餐</span></span></li>
+              <li class="ev"><span class="ev-ic">🎡</span><span class="ev-main"><span class="ev-time">玩樂</span><span class="ev-desc">兒童、青少年及成人專屬場地；泳池、水上滑梯</span></span></li>
+              <li class="ev"><span class="ev-ic">📱</span><span class="ev-main"><span class="ev-time">提示</span><span class="ev-desc">留意 <b>Disney Cruise Line Navigator App</b> 內每日活動及表演時間，記得預早留位</span></span></li>
+            </ul>
+          </div></div></div>
+        </div>
+      </article>
+
+      <!-- DAY 5 -->
+      <article class="day city open">
+        <div class="marker" aria-hidden="true">⚓</div>
+        <div class="card">
+          <button class="day-head" aria-expanded="true">
+            <span class="badge"><small>DAY</small><b>5</b></span>
+            <span class="head-txt">
+              <span class="head-date">8月13日 · 星期四</span>
+              <span class="head-title">回到新加坡</span>
+              <span class="head-tag">⚓ 郵輪 Day 4 · 下船</span>
+            </span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="body"><div class="body-in"><div class="body-pad">
+            <ul class="sched">
+              <li class="ev"><span class="ev-ic">⚓</span><span class="ev-main"><span class="ev-time">07:00</span><span class="ev-desc">於 Marina Bay Cruise Centre 下船</span></span></li>
+              <li class="ev"><span class="ev-ic">🏨</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">到 Hotel Mi Rochor 寄存行李（下午正式入住）<span class="in">室內</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🍞</span><span class="ev-main"><span class="ev-time">早餐</span><span class="ev-desc">亞坤咖椰吐司 Ya Kun — 咖椰多士 + 半熟蛋 + Kopi<span class="in">室內</span></span></span></li>
+              <li class="ev"><span class="ev-ic">🛕</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">牛車水 Chinatown：佛牙寺龍華院<span class="in">室內</span>、寶塔街 Pagoda Street<span class="out">室外</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🍗</span><span class="ev-main"><span class="ev-time">午餐</span><span class="ev-desc">麥士威熟食中心 Maxwell — 必食天天海南雞飯<span class="in">熟食中心</span></span><span class="food-alt">💡 想<b>清淡</b>：麥士威內亦有魚片湯米粉、粥品、豆花等中式選擇</span></span></li>
+              <li class="ev"><span class="ev-ic">📸</span><span class="ev-main"><span class="ev-time">下午</span><span class="ev-desc">魚尾獅公園 Merlion Park 散步、影相打卡<span class="out">室外</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🍢</span><span class="ev-main"><span class="ev-time">晚餐</span><span class="ev-desc">老巴剎 Lau Pa Sat — 戶外封街沙嗲街 Satay Street 夜市<span class="out">室外</span></span><span class="food-alt">💡 想<b>中式／清淡</b>：老巴剎內亦有雞飯、魚湯、麵食攤檔；或到附近 Amoy Street／China Square 冷氣餐廳</span></span></li>
+            </ul>
+            <div class="ev-ref"><span class="s">✦</span> 酒店訂房編號 TQF08066（8/13 入住）</div>
+          </div></div></div>
+        </div>
+      </article>
+
+      <!-- DAY 6 -->
+      <article class="day flight open">
+        <div class="marker" aria-hidden="true">🛬</div>
+        <div class="card">
+          <button class="day-head" aria-expanded="true">
+            <span class="badge"><small>DAY</small><b>6</b></span>
+            <span class="head-txt">
+              <span class="head-date">8月14日 · 星期五</span>
+              <span class="head-title">返回香港</span>
+              <span class="head-tag">✈ 回程日</span>
+            </span>
+            <span class="chev" aria-hidden="true">▾</span>
+          </button>
+          <div class="body"><div class="body-in"><div class="body-pad">
+            <ul class="sched">
+              <li class="ev"><span class="ev-ic">🧳</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">酒店退房，直接前往新加坡樟宜機場</span></span></li>
+              <li class="ev"><span class="ev-ic">✅</span><span class="ev-main"><span class="ev-time">建議</span><span class="ev-desc">先辦 Check-in、寄存行李，再輕鬆歎早午餐</span><details class="ev-note"><summary>🧭 Check-in 定食早餐先？</summary><div class="ev-note-body"><b>建議先 Check-in。</b>放低郵輪行李、確認 T3 位置後食嘢會安心啲；新航櫃位一般航班前約 3 小時開（13:05 航班約 <b>10:05</b> 開）。星耀樟宜 Jewel 位於 T1，landside 可經 Skytrain／接駁往返各航廈，之後先過關。</div></details></span></li>
+              <li class="ev"><span class="ev-ic">🌊</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">星耀樟宜 Jewel Changi：室內森林瀑布 HSBC Rain Vortex、逛商場<span class="in">室內</span></span></span></li>
+              <li class="ev food"><span class="ev-ic">🍲</span><span class="ev-main"><span class="ev-time">早午餐</span><span class="ev-desc">星耀樟宜內用餐 — 松發肉骨茶 或 Shake Shack（方便候機）<span class="in">室內</span></span><span class="food-alt">💡 想<b>中式／清淡</b>：Jewel 內有鼎泰豐、翡翠拉麵小籠包、亞坤咖椰吐司等（小籠包、粥、雲吞麵較清淡）</span></span></li>
+              <li class="ev"><span class="ev-ic">✈️</span><span class="ev-main"><span class="ev-time">13:05</span><span class="ev-desc">新加坡樟宜機場（T3）起飛 · 新加坡航空</span></span></li>
+              <li class="ev"><span class="ev-ic">🛬</span><span class="ev-main"><span class="ev-time">17:05</span><span class="ev-desc">抵達香港國際機場（T1）</span></span></li>
+            </ul>
+            <div class="ev-ref"><span class="s">✦</span> 電子機票 E6GAE5 · 行李 25kg</div>
+          </div></div></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===== PANEL B · 旅程資料 ===== -->
+<section id="panel-info" class="panel" role="tabpanel" aria-labelledby="tab-2">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kk">Boarding &amp; Booking</p>
+      <h2>旅程資料</h2>
+      <p>登機證 · 酒店 · 郵輪</p>
+    </div>
+
+    <!-- Boarding pass -->
+    <div class="bp-toggle">
+      <button class="bp-btn active" data-bp="bp-out">✈ 去程</button>
+      <button class="bp-btn" data-bp="bp-ret">✈ 回程</button>
+    </div>
+
+    <div class="boarding active" id="bp-out">
+      <div class="bpass">
+        <div class="bpass-top">
+          <div class="bpass-air"><span class="sq">✦</span> SINGAPORE AIRLINES</div>
+          <div class="bpass-tkt">E-TICKET<br>E6GAE5</div>
+        </div>
+        <div class="bpass-route">
+          <div class="bp-city"><span class="bp-code">HKG</span><small>香港 · T1</small><span class="bp-time">09:05</span></div>
+          <div class="bp-mid"><span class="plane">✈</span><span class="dur">直航 · 約 3h50m</span></div>
+          <div class="bp-city"><span class="bp-code">SIN</span><small>新加坡樟宜</small><span class="bp-time">12:55</span></div>
+        </div>
+        <div class="bpass-perf"></div>
+        <div class="bpass-stub">
+          <div class="bp-item"><small>日期</small><b>8月9日 日</b></div>
+          <div class="bp-item"><small>艙等</small><b>經濟 N</b></div>
+          <div class="bp-item"><small>行李</small><b>25 kg</b></div>
+          <div class="bp-item"><small>狀態</small><b class="bp-ok">已確認</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="boarding" id="bp-ret">
+      <div class="bpass">
+        <div class="bpass-top">
+          <div class="bpass-air"><span class="sq">✦</span> SINGAPORE AIRLINES</div>
+          <div class="bpass-tkt">E-TICKET<br>E6GAE5</div>
+        </div>
+        <div class="bpass-route">
+          <div class="bp-city"><span class="bp-code">SIN</span><small>新加坡 · T3</small><span class="bp-time">13:05</span></div>
+          <div class="bp-mid"><span class="plane">✈</span><span class="dur">直航 · 約 4h00m</span></div>
+          <div class="bp-city"><span class="bp-code">HKG</span><small>香港 · T1</small><span class="bp-time">17:05</span></div>
+        </div>
+        <div class="bpass-perf"></div>
+        <div class="bpass-stub">
+          <div class="bp-item"><small>日期</small><b>8月14日 五</b></div>
+          <div class="bp-item"><small>艙等</small><b>經濟 V</b></div>
+          <div class="bp-item"><small>行李</small><b>25 kg</b></div>
+          <div class="bp-item"><small>狀態</small><b class="bp-ok">已確認</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-grid" style="margin-top:1.3rem">
+      <!-- hotel -->
+      <div class="info h">
+        <div class="info-top"><span class="em">🏨</span><span><b>酒店</b><small>Hotel Mi Rochor</small></span></div>
+        <div class="info-body">
+          <div class="row"><span class="lab">地址</span><span class="val">89 Short Street, Singapore 188216</span></div>
+          <div class="row"><span class="lab">電話</span><span class="val">8566698822</span></div>
+          <div class="row"><span class="lab">房型</span><span class="val">Superior Room · 純房費 · 4 位成人</span></div>
+          <div class="row"><span class="lab">住宿</span><span class="val"><span class="pill">8/9–8/10 · TQF08061</span><span class="pill">8/13–8/14 · TQF08066</span></span></div>
+          <div class="map-box">
+            <iframe class="map" title="Hotel Mi Rochor 地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Hotel%20Mi%20Rochor%2C%2089%20Short%20Street%20Singapore&z=16&output=embed"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Hotel+Mi+Rochor+89+Short+Street+Singapore" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- cruise -->
+      <div class="info c">
+        <div class="info-top"><span class="em">🚢</span><span><b>迪士尼郵輪</b><small>Disney Adventure</small></span></div>
+        <div class="info-body">
+          <div class="row"><span class="lab">航程</span><span class="val"><b>3 晚郵輪</b> · 母港 Marina Bay Cruise Centre</span></div>
+          <div class="row"><span class="lab">登 / 下船</span><span class="val">登船 8/10 <b>16:00</b> · 下船 8/13 <b>07:00</b></span></div>
+          <div class="row"><span class="lab">包含</span><span class="val"><span class="pill">百老匯表演</span><span class="pill">泳池 &amp; 水上滑梯</span><span class="pill">寬敞客房</span><span class="pill">豪華餐飲</span><span class="pill">成人專屬活動</span><span class="pill">兒童 / 青少年會所</span></span></div>
+          <div class="map-box">
+            <iframe class="map" title="Marina Bay Cruise Centre 地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              src="https://maps.google.com/maps?q=Marina%20Bay%20Cruise%20Centre%20Singapore&z=15&output=embed"></iframe>
+            <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Cruise+Centre+Singapore" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PANEL C · 新加坡資料 ===== -->
+<section id="panel-sg" class="panel" role="tabpanel" aria-labelledby="tab-3">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kk">Singapore Tips</p>
+      <h2>新加坡實用資料</h2>
+      <p>即時天氣 · 匯率 · 交通查詢 ✦</p>
+    </div>
+
+    <div class="sg-grid">
+      <!-- weather -->
+      <div class="sg">
+        <h4><span class="e">🌤️</span>天氣 &amp; 衣著</h4>
+        <div class="wx-now" id="wx-now">
+          <span class="wxe" id="wx-emoji">⛅</span>
+          <div>
+            <div class="t" id="wx-temp">載入中…</div>
+            <div class="d" id="wx-desc">正在取得新加坡即時天氣</div>
+          </div>
+        </div>
+        <p>熱帶氣候，全年約 <b>25–33°C</b>，潮濕多雷陣雨。輕便夏裝、防曬、太陽眼鏡；帶把雨傘，室內冷氣強可備薄外套。</p>
+      </div>
+
+      <!-- currency -->
+      <div class="sg g">
+        <h4><span class="e">💵</span>貨幣 &amp; 匯率</h4>
+        <div class="fx-rate">1 HKD ≈ <b id="fx-rate">0.16</b> SGD <span id="fx-src">（預設）</span></div>
+        <div class="fx-row">
+          <label>港幣 HKD<input id="fx-hkd" type="number" inputmode="decimal" value="100" min="0"></label>
+          <span class="fx-eq">=</span>
+          <label>新元 SGD<input id="fx-sgd" type="number" inputmode="decimal" min="0"></label>
+        </div>
+        <p style="margin-top:.6rem">信用卡、PayNow 及行動支付非常普及；市區找換店（如珍珠坊 People's Park）匯率較好。</p>
+      </div>
+
+      <!-- transport -->
+      <div class="sg c wide">
+        <h4><span class="e">🚇</span>交通 · 即時路線查詢</h4>
+        <p>MRT 地鐵 + 巴士完善，可用感應式信用卡或 EZ-Link 卡拍卡入閘；短程用 <b>Grab</b>。與香港 <b>無時差</b>（GMT+8）。撳下面即開 Google 地圖交通路線：</p>
+        <div class="tp-presets">
+          <a class="tp-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Changi+Airport+Singapore&destination=Hotel+Mi+Rochor+89+Short+Street+Singapore&travelmode=transit">✈ 機場 → 酒店</a>
+          <a class="tp-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Hotel+Mi+Rochor+Singapore&destination=Marina+Bay+Cruise+Centre+Singapore&travelmode=transit">🏨 酒店 → 郵輪碼頭</a>
+          <a class="tp-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Hotel+Mi+Rochor+Singapore&destination=Chinatown+Singapore&travelmode=transit">🏨 酒店 → 牛車水</a>
+          <a class="tp-link" target="_blank" rel="noopener" href="https://www.google.com/maps/dir/?api=1&origin=Hotel+Mi+Rochor+Singapore&destination=Jewel+Changi+Airport&travelmode=transit">🏨 酒店 → 星耀樟宜</a>
+        </div>
+        <div class="tp-custom">
+          <input id="tp-from" placeholder="從（預設：酒店）">
+          <input id="tp-to" placeholder="到（地點 / 景點）">
+          <a id="tp-go" target="_blank" rel="noopener" href="#">查詢路線 ↗</a>
+        </div>
+      </div>
+
+      <!-- practical & safety -->
+      <div class="sg g">
+        <h4><span class="e">📞</span>實用 &amp; 安全</h4>
+        <p>緊急電話：<b>999</b>（警察）、<b>995</b>（救護 / 消防）。英語通用、華語普遍。餐廳帳單多含 <b>10% 服務費 + 9% GST</b>，一般毋須另付小費。治安良好，但仍要保管好財物。</p>
+      </div>
+
+      <!-- fines for HK visitors -->
+      <div class="sg c wide">
+        <h4><span class="e">⚠️</span>貼士 &amp; 罰款（香港人易中招）</h4>
+        <ul class="warn">
+          <li><b>電子煙 / Vape：</b>喺新加坡管有、使用、購買電子煙 <b>全屬違法</b>（遊客都罰），成人罰款約 S$700，連空機都犯法，機場有嚴查——切勿攜帶入境或過境。</li>
+          <li><b>香煙：</b>新加坡 <b>無免稅煙草配額</b>，所有香煙須申報並繳稅，帶整條煙未報可被重罰。</li>
+          <li><b>地鐵 / 巴士內飲食：</b>連飲水都唔可以，最高罰約 <b>S$500</b>。</li>
+          <li><b>口香糖：</b>禁止進口及售賣，勿隨處黏／棄置。</li>
+          <li><b>亂過馬路 / 衝紅燈：</b>未用行人過路處會被罰款。</li>
+          <li><b>亂拋垃圾 / 吐痰 / 掉煙頭：</b>罰款重，屢犯或需社區服務。</li>
+          <li><b>吸煙：</b>只可喺指定黃框吸煙區，勿喺禁煙區（包括不少戶外地方）吸煙。</li>
+          <li><b>公眾地方飲酒：</b>晚上 10:30–早上 7:00 禁止喺公眾地方飲酒（小印度、芽籠等更嚴）。</li>
+          <li><b>榴槤：</b>不得攜入地鐵及大部分酒店。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-star">✦ ✦ ✦</div>
+  <h3>祝一家四口旅途愉快</h3>
+  <p class="en">Have a Magical Voyage</p>
+  <p class="note">行程資料整理自機票、酒店及郵輪訂單；餐廳、景點及貼士為建議安排。即時天氣及匯率由公開 API 提供，僅供參考；實際時間、客運大樓、法例及安排請以航空公司、酒店、迪士尼郵輪及官方公佈為準。</p>
+</footer>
+
+<script>
+  // stars
+  (function(){var sky=document.getElementById('stars');if(!sky)return;var f=document.createDocumentFragment();
+    for(var i=0;i<54;i++){var s=document.createElement('span');s.className='star';
+      s.style.left=(Math.random()*100).toFixed(2)+'%';s.style.top=(Math.random()*70).toFixed(2)+'%';
+      var z=(Math.random()*1.8+1).toFixed(1);s.style.width=z+'px';s.style.height=z+'px';
+      s.style.animationDelay=(Math.random()*3.5).toFixed(2)+'s';f.appendChild(s);}sky.appendChild(f);})();
+
+  // countdown
+  (function(){var target=new Date('2026-08-09T09:05:00+08:00').getTime();
+    function pad(n){return n<10?'0'+n:''+n;}
+    function tick(){var diff=target-Date.now();
+      if(diff<=0){document.getElementById('cd-d').textContent='0';document.getElementById('cd-h').textContent='00';
+        document.getElementById('cd-m').textContent='00';document.getElementById('cd-s').textContent='00';
+        var l=document.getElementById('cd-label');if(l)l.textContent='旅程進行中 · 旅途愉快！';return;}
+      document.getElementById('cd-d').textContent=Math.floor(diff/86400000);
+      document.getElementById('cd-h').textContent=pad(Math.floor(diff%86400000/3600000));
+      document.getElementById('cd-m').textContent=pad(Math.floor(diff%3600000/60000));
+      document.getElementById('cd-s').textContent=pad(Math.floor(diff%60000/1000));}
+    tick();setInterval(tick,1000);})();
+
+  // tabs
+  (function(){var tabs=[].slice.call(document.querySelectorAll('.tab'));
+    var panels=[].slice.call(document.querySelectorAll('.panel'));var wrap=document.querySelector('.tabs-wrap');
+    function activate(tab,scroll){tabs.forEach(function(t){var on=t===tab;t.classList.toggle('active',on);t.setAttribute('aria-selected',on?'true':'false');});
+      var id=tab.getAttribute('data-panel');panels.forEach(function(p){p.classList.toggle('active',p.id===id);});
+      if(scroll&&wrap){var nat=wrap.offsetTop;if(window.scrollY>nat){window.scrollTo({top:nat,behavior:'smooth'});}}}
+    tabs.forEach(function(tab,i){tab.addEventListener('click',function(){activate(tab,true);});
+      tab.addEventListener('keydown',function(e){if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();
+        var d=e.key==='ArrowRight'?1:-1;var n=tabs[(i+d+tabs.length)%tabs.length];n.focus();activate(n,false);}});});})();
+
+  // accordion (all expanded by default, tap a day header to fold/unfold)
+  (function(){var days=[].slice.call(document.querySelectorAll('.day'));
+    days.forEach(function(day){var h=day.querySelector('.day-head');h.addEventListener('click',function(){
+      var o=day.classList.toggle('open');h.setAttribute('aria-expanded',o?'true':'false');});});})();
+
+  // boarding pass toggle
+  (function(){var btns=[].slice.call(document.querySelectorAll('.bp-btn'));var bs=[].slice.call(document.querySelectorAll('.boarding'));
+    btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('active');});b.classList.add('active');
+      var id=b.getAttribute('data-bp');bs.forEach(function(x){x.classList.toggle('active',x.id===id);});});});})();
+
+  // live weather (Open-Meteo, no key)
+  (function(){
+    function desc(c){if(c===0)return['☀️','晴朗'];if(c===1)return['🌤️','大致晴朗'];if(c===2)return['⛅','部分多雲'];
+      if(c===3)return['☁️','多雲'];if(c===45||c===48)return['🌫️','有霧'];if(c>=51&&c<=57)return['🌦️','毛毛雨'];
+      if(c>=61&&c<=67)return['🌧️','有雨'];if(c>=71&&c<=77)return['🌨️','有雪'];if(c>=80&&c<=82)return['🌧️','陣雨'];
+      if(c>=95)return['⛈️','雷暴'];return['🌡️','天氣'];}
+    fetch('https://api.open-meteo.com/v1/forecast?latitude=1.3521&longitude=103.8198&current=temperature_2m,relative_humidity_2m,weather_code&timezone=Asia%2FSingapore')
+      .then(function(r){return r.json();}).then(function(d){var c=d.current;var w=desc(c.weather_code);
+        document.getElementById('wx-emoji').textContent=w[0];
+        document.getElementById('wx-temp').textContent=Math.round(c.temperature_2m)+'°C';
+        document.getElementById('wx-desc').innerHTML=w[1]+' · 濕度 <b>'+c.relative_humidity_2m+'%</b> · 即時';})
+      .catch(function(){document.getElementById('wx-temp').textContent='25–33°C';
+        document.getElementById('wx-desc').textContent='即時天氣暫時無法載入，僅供參考';});})();
+
+  // live FX (open.er-api.com, no key) + converter
+  (function(){var rate=0.16;var hkd=document.getElementById('fx-hkd');var sgd=document.getElementById('fx-sgd');
+    function fromH(){var v=parseFloat(hkd.value)||0;sgd.value=(v*rate).toFixed(2);}
+    function fromS(){var v=parseFloat(sgd.value)||0;hkd.value=(v/rate).toFixed(2);}
+    hkd.addEventListener('input',fromH);sgd.addEventListener('input',fromS);fromH();
+    fetch('https://open.er-api.com/v6/latest/HKD').then(function(r){return r.json();}).then(function(d){
+      if(d&&d.rates&&d.rates.SGD){rate=d.rates.SGD;document.getElementById('fx-rate').textContent=rate.toFixed(4);
+        document.getElementById('fx-src').textContent='（即時匯率）';fromH();}}).catch(function(){});})();
+
+  // transport custom link
+  (function(){var f=document.getElementById('tp-from');var t=document.getElementById('tp-to');var g=document.getElementById('tp-go');
+    function upd(){var o=encodeURIComponent((f.value||'Hotel Mi Rochor Singapore').trim());
+      var d=encodeURIComponent((t.value||'Singapore').trim());
+      g.href='https://www.google.com/maps/dir/?api=1&origin='+o+'&destination='+d+'&travelmode=transit';}
+    f.addEventListener('input',upd);t.addEventListener('input',upd);upd();})();
+</script>
+</body>
+</html>
