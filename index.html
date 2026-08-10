@@ -201,6 +201,37 @@
   .bp-item b{font-size:.85rem;color:#fff;font-weight:600}
   .bp-ok{color:#7ee0a6!important}
 
+  /* cruise ticket (Disney style) */
+  .cruise-wrap{margin-top:1.3rem}
+  .cticket{background:linear-gradient(155deg,#1b3d6b,#12294a 55%,#0d1f3a);color:#fff;border-radius:22px;
+    box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.09);overflow:hidden;position:relative}
+  .cticket::before{content:"";position:absolute;inset:0;pointer-events:none;
+    background:radial-gradient(360px 150px at 88% -10%, rgba(245,184,65,.22), transparent 70%)}
+  .ct-top{position:relative;display:flex;justify-content:space-between;align-items:flex-start;gap:.6rem;padding:1rem 1.2rem .3rem}
+  .ct-line{font-family:var(--f-disp);font-weight:600;font-size:.95rem;letter-spacing:.03em}
+  .ct-line .sq{color:var(--gold-soft)}
+  .ct-line small{display:block;font-size:.64rem;color:#9fc0d8;letter-spacing:.14em;text-transform:uppercase;margin-top:.15rem}
+  .ct-nights{text-align:right;flex:0 0 auto}
+  .ct-nights b{display:block;font-family:var(--f-disp);font-weight:700;font-size:1.5rem;line-height:1;color:var(--gold-soft)}
+  .ct-nights small{font-size:.6rem;color:#9fc0d8;letter-spacing:.1em}
+  .ct-route{position:relative;display:flex;align-items:center;justify-content:space-between;gap:.5rem;padding:.5rem 1.2rem 1rem}
+  .ct-pt{text-align:center;min-width:0}
+  .ct-pt b{display:block;font-family:var(--f-disp);font-weight:700;font-size:1.05rem;color:#fff;line-height:1.2}
+  .ct-pt small{display:block;font-size:.62rem;color:#9fc0d8;margin-top:.15rem}
+  .ct-pt span{display:block;font-family:var(--f-disp);font-weight:600;font-size:1.15rem;color:var(--gold-soft);margin-top:.28rem}
+  .ct-mid{flex:1;text-align:center;color:var(--teal-bright);font-size:1.15rem}
+  .ct-mid small{display:block;font-size:.58rem;color:#8fb0c8;letter-spacing:.05em;margin-top:.15rem}
+  .ct-perf{position:relative;border-top:2px dashed rgba(255,255,255,.26);margin:0 .35rem}
+  .ct-perf::before,.ct-perf::after{content:"";position:absolute;top:-11px;width:20px;height:20px;border-radius:50%;background:var(--cream)}
+  .ct-perf::before{left:-13px}.ct-perf::after{right:-13px}
+  .ct-rooms{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:.5rem;padding:.95rem 1.2rem .55rem}
+  .ct-room{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:14px;padding:.55rem .7rem;display:flex;align-items:center;gap:.55rem}
+  .ct-room .k{font-size:1.15rem}
+  .ct-room small{display:block;font-size:.58rem;color:#9fc0d8;letter-spacing:.1em;text-transform:uppercase}
+  .ct-room b{font-family:var(--f-disp);font-weight:700;font-size:1.2rem;color:#fff;line-height:1.1}
+  .ct-foot{position:relative;padding:.15rem 1.2rem 1.05rem;font-size:.7rem;color:#8fb0c8;letter-spacing:.02em}
+
+
   /* ---------- INFO CARDS ---------- */
   .info-grid{display:grid;gap:1rem}
   .info{background:var(--paper);border-radius:20px;box-shadow:var(--shadow);overflow:hidden;border:1px solid rgba(255,255,255,.8)}
@@ -218,7 +249,7 @@
   .pill{display:inline-block;font-family:var(--f-disp);font-size:.72rem;font-weight:500;background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:.08rem .5rem;margin:.1rem .2rem .1rem 0;color:var(--ink-soft)}
   .map-box{margin:.6rem -1.1rem -1.1rem;border-top:1px dashed var(--line)}
   .map{width:100%;height:190px;border:0;display:block;background:#e9eef2}
-  .map-link{display:block;text-align:center;font-size:.78rem;padding:.6rem;color:var(--teal);font-weight:700;text-decoration:none;background:#f6f2ea}
+  .map-link{display:block;text-align:center;font-size:.78rem;padding:1rem .6rem 1.1rem;color:var(--teal);font-weight:700;text-decoration:none;background:#f6f2ea}
   .map-link:hover{background:#efe9dc}
   .info.r .info-top{background:linear-gradient(120deg,#7a9a3f,#5f7d2c)}
   .info.r .map-box{margin:.6rem -1.1rem 0;border-bottom:1px dashed var(--line)}
@@ -663,13 +694,33 @@
         </div>
       </div>
 
-      <div class="info c">
-        <div class="info-top"><span class="em">🚢</span><span><b>迪士尼郵輪</b><small>Disney Adventure</small></span></div>
-        <div class="info-body">
-          <div class="row"><span class="lab">航程</span><span class="val"><b>3 晚郵輪</b> · 母港 Marina Bay Cruise Centre</span></div>
-          <div class="row"><span class="lab">登 / 下船</span><span class="val">登船 8/10 <b>12:00</b> · 下船 8/13 <b>07:00</b></span></div>
-          <div class="row"><span class="lab">包含</span><span class="val"><span class="pill">百老匯表演</span><span class="pill">泳池 &amp; 水上滑梯</span><span class="pill">寬敞客房</span><span class="pill">豪華餐飲</span><span class="pill">成人專屬活動</span><span class="pill">兒童 / 青少年會所</span></span></div>
-          <div class="map-box">
+    </div>
+
+    <!-- cruise ticket -->
+    <div class="cruise-wrap">
+      <div class="cticket">
+        <div class="ct-top">
+          <div class="ct-line"><span class="sq">✦</span> DISNEY CRUISE LINE<small>Disney Adventure</small></div>
+          <div class="ct-nights"><b>3</b><small>NIGHTS</small></div>
+        </div>
+        <div class="ct-route">
+          <div class="ct-pt"><b>登船</b><small>8月10日 · 一</small><span>12:00</span></div>
+          <div class="ct-mid">🚢<small>3 晚 · 新加坡出發</small></div>
+          <div class="ct-pt"><b>下船</b><small>8月13日 · 四</small><span>07:00</span></div>
+        </div>
+        <div class="ct-perf"></div>
+        <div class="ct-rooms">
+          <div class="ct-room"><span class="k">🛏️</span><span><small>Stateroom</small><b>9107</b></span></div>
+          <div class="ct-room"><span class="k">🛏️</span><span><small>Stateroom</small><b>9109</b></span></div>
+        </div>
+        <div class="ct-foot">母港 Marina Bay Cruise Centre · 新加坡 ｜ 一家四口 · 兩間客房</div>
+      </div>
+
+      <!-- terminal map -->
+      <div class="info c" style="margin-top:.9rem">
+        <div class="info-top"><span class="em">📍</span><span><b>郵輪碼頭</b><small>Marina Bay Cruise Centre</small></span></div>
+        <div class="info-body" style="padding-bottom:0">
+          <div class="map-box" style="margin-top:0">
             <iframe class="map" title="Marina Bay Cruise Centre 地圖" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
               src="https://maps.google.com/maps?q=Marina%20Bay%20Cruise%20Centre%20Singapore&z=15&output=embed"></iframe>
             <a class="map-link" href="https://www.google.com/maps/search/?api=1&query=Marina+Bay+Cruise+Centre+Singapore" target="_blank" rel="noopener">在 Google 地圖開啟 ↗</a>
