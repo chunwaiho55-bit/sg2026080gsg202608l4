@@ -46,14 +46,31 @@
   .hero-sub{font-family:var(--f-disp);font-weight:500;font-size:clamp(1rem,3.6vw,1.35rem);
     color:var(--teal-bright);letter-spacing:.08em}
   .hero-sub .spark{color:var(--gold-soft)}
-  .hero-meta{margin-top:.8rem;font-size:.95rem;color:#cfe0ef;font-weight:500}
+  .hero-meta{margin-top:1.15rem;font-size:.95rem;color:#cfe0ef;font-weight:500;line-height:1.9}
   .hero-meta b{color:#fff;font-weight:700}
   .countdown{display:flex;gap:.55rem;justify-content:center;margin:1.4rem auto .5rem}
+  .countdown[hidden]{display:none}
   .cd-box{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.16);backdrop-filter:blur(6px);
     border-radius:16px;padding:.55rem .35rem .4rem;min-width:62px}
   .cd-box b{display:block;font-family:var(--f-disp);font-weight:700;font-size:1.65rem;line-height:1;color:#fff;font-variant-numeric:tabular-nums}
   .cd-box span{font-size:.68rem;color:var(--gold-soft);letter-spacing:.12em}
-  .cd-label{font-size:.78rem;color:#a9c0d6;letter-spacing:.05em;margin-bottom:.2rem}
+  .cd-label{font-size:.78rem;color:#a9c0d6;letter-spacing:.05em;margin:.55rem 0 .75rem}
+  /* live "today" jump button (shows once trip starts) */
+  .today{display:flex;align-items:center;gap:.75rem;margin:.4rem auto 1.1rem;max-width:340px;width:100%;
+    background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.22);backdrop-filter:blur(6px);
+    border-radius:18px;padding:.7rem .85rem;cursor:pointer;font-family:var(--f-body);
+    text-align:left;transition:background .2s,transform .12s}
+  .today:hover{background:rgba(255,255,255,.17)}
+  .today:active{transform:scale(.98)}
+  .today[hidden]{display:none}
+  .t-badge{flex:0 0 auto;width:50px;text-align:center;line-height:1;border-radius:14px;padding:.4rem 0;
+    color:#0a1d34;background:linear-gradient(150deg,var(--gold-soft),var(--gold))}
+  .t-badge small{display:block;font-size:.55rem;letter-spacing:.16em;opacity:.75}
+  .t-badge b{font-family:var(--f-disp);font-weight:700;font-size:1.35rem}
+  .t-txt{flex:1;min-width:0;display:flex;flex-direction:column}
+  .t-day{font-size:.72rem;color:var(--gold-soft);letter-spacing:.04em}
+  .t-title{font-weight:700;font-size:1.02rem;color:#fff;line-height:1.25}
+  .t-go{flex:0 0 auto;font-size:.75rem;font-weight:700;color:var(--teal-bright);white-space:nowrap}
   .scene{position:relative;z-index:2;margin-top:1.1rem;line-height:0;pointer-events:none}
   .scene svg{width:100%;height:auto;display:block}
   .win{fill:var(--gold-soft);opacity:.85}.ship-body{fill:#1b3a5c}.skyline{fill:#091d34}
@@ -86,6 +103,9 @@
   /* ---------- TIMELINE ---------- */
   .timeline{position:relative}
   .day{position:relative;margin-bottom:1rem}
+  .day.flash .card{animation:flash 1.6s ease}
+  @keyframes flash{0%,100%{box-shadow:0 2px 6px -2px rgba(11,32,56,.10), 0 18px 40px -22px rgba(11,32,56,.45)}
+    35%{box-shadow:0 0 0 4px var(--dc), 0 18px 40px -22px rgba(11,32,56,.45)}}
   .card{background:var(--paper);border-radius:22px;box-shadow:0 2px 6px -2px rgba(11,32,56,.10), 0 18px 40px -22px rgba(11,32,56,.45);overflow:hidden;border:1px solid rgba(11,32,56,.06)}
   /* one colour per day */
   .day.d1{--dc:#159aae;--dc2:#0e7285;--dcs:#dcf3f6}   /* Day 1 · 湖水藍 */
@@ -110,6 +130,17 @@
   .day.open .body{grid-template-rows:1fr}
   .body-in{overflow:hidden}.body-pad{padding:.2rem 1.05rem 1.15rem 1.05rem}
   .sched{list-style:none;border-top:1px dashed var(--line);padding-top:.85rem}
+  /* Day 3 / Day 4 switcher */
+  .dsw{display:grid;grid-template-columns:1fr 1fr;gap:.4rem;margin:.2rem 0 .1rem}
+  .dsw-b{font-family:var(--f-body);font-weight:700;font-size:.84rem;color:var(--ink-soft);cursor:pointer;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.55rem .3rem;
+    transition:background .2s,color .2s,border-color .2s;line-height:1.3}
+  .dsw-b small{display:block;font-family:var(--f-disp);font-weight:500;font-size:.62rem;opacity:.8;letter-spacing:.04em}
+  .dsw-b.on{color:#fff;background:linear-gradient(150deg,var(--dc),var(--dc2));border-color:transparent;
+    box-shadow:0 6px 14px -8px rgba(21,50,60,.7)}
+  .dsw-b:active{transform:scale(.97)}
+  .dpane{display:none}
+  .dpane.on{display:block;animation:fade .3s ease}
   .ev{display:flex;gap:.7rem;align-items:flex-start;padding:.42rem 0}
   .ev-ic{flex:0 0 auto;width:1.85rem;height:1.85rem;border-radius:10px;display:grid;place-items:center;font-size:.95rem;background:var(--cream)}
   .ev-main{display:flex;flex-direction:column;min-width:0;flex:1}
@@ -267,6 +298,12 @@
       <div class="cd-box"><b id="cd-s">--</b><span>秒 SEC</span></div>
     </div>
     <p class="cd-label" id="cd-label">距離出發 · 2026年8月9日 09:05</p>
+
+    <button class="today" id="today" hidden>
+      <span class="t-badge"><small>DAY</small><b id="t-num">1</b></span>
+      <span class="t-txt"><span class="t-day" id="t-date">今日</span><span class="t-title" id="t-title">行程</span></span>
+      <span class="t-go">睇行程 →</span>
+    </button>
   </div>
 
   <div class="scene" aria-hidden="true">
@@ -337,7 +374,7 @@
     <div class="timeline">
 
       <!-- DAY 1 -->
-      <article class="day d1 open">
+      <article id="day-1" class="day d1 open">
         <div class="card">
           <button class="day-head" aria-expanded="true">
             <span class="badge"><small>DAY</small><b>1</b></span>
@@ -379,7 +416,7 @@
       </article>
 
       <!-- DAY 2 -->
-      <article class="day d2 open">
+      <article id="day-2" class="day d2 open">
         <div class="card">
           <button class="day-head" aria-expanded="true">
             <span class="badge"><small>DAY</small><b>2</b></span>
@@ -396,37 +433,56 @@
               <li class="ev"><span class="ev-ic">🧳</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">酒店退房，執拾行李</span></span></li>
               <li class="ev"><span class="ev-ic">🚕</span><span class="ev-main"><span class="ev-time">上午</span><span class="ev-desc">Grab 直達 Marina Bay Cruise Centre（約 15 分鐘車程）</span></span></li>
               <li class="ev"><span class="ev-ic">🚢</span><span class="ev-main"><span class="ev-time">12:00</span><span class="ev-desc">辦理登船手續，登上 Disney Adventure</span></span></li>
+              <li class="ev"><span class="ev-ic">⚓</span><span class="ev-main"><span class="ev-time">16:00</span><span class="ev-desc">郵輪起航 Ship Departure<span class="in">已確認</span></span></span></li>
+              <li class="ev"><span class="ev-ic">🥂</span><div class="ev-main"><span class="ev-time">17:00</span><div class="ev-desc">Pre-dinner time — 甲板睇日落 · 泳池 · 探索郵輪<details class="ev-note inline"><summary>📖 點安排</summary><div class="ev-note-body">距離 <b>20:15 晚餐</b> 仲有 3 個鐘，啱啱好放鬆：<br><br>🌅 <b>上甲板睇起航同日落</b> — 離開新加坡港嘅天際線景最靚<br>🏊 <b>泳池 · 水上滑梯</b> — 呢個時段人少啲<br>🍹 <b>成人專屬酒吧</b> / 大堂現場音樂<br>🧸 <b>兒童及青少年會所</b>登記<br>🗺️ 行一轉全船，熟悉餐廳、劇院位置<br><br>💡 記得喺 Navigator App 睇當晚活動同表演時間。</div></details></div></div></li>
+              <li class="ev food"><span class="ev-ic">🍽️</span><span class="ev-main"><span class="ev-time">20:15</span><span class="ev-desc">晚餐 Dinner<span class="in">已確認</span></span></span></li>
             </ul>
-            <div class="ev-ref"><span class="s">✦</span> 郵輪包百老匯表演、泳池 &amp; 水上滑梯、寬敞客房、24小時客房送餐、成人專屬活動、兒童及青少年會所</div>
           </div></div></div>
         </div>
       </article>
 
       <!-- DAY 3-4 MERGED -->
-      <article class="day d3 open">
+      <article id="day-3" class="day d3 open">
         <div class="card">
           <button class="day-head" aria-expanded="true">
             <span class="badge"><small>DAY</small><b>3–4</b></span>
             <span class="head-txt">
               <span class="head-date">8月11–12日 · 星期二至三</span>
-              <span class="head-title">海上巡遊（兩日）</span>
+              <span class="head-title">海上巡遊</span>
               <span class="head-tag">🚢 郵輪 Day 2–3</span>
             </span>
             <span class="chev" aria-hidden="true">▾</span>
           </button>
           <div class="body"><div class="body-in"><div class="body-pad">
-            <ul class="sched">
-              <li class="ev"><span class="ev-ic">🌊</span><span class="ev-main"><span class="ev-time">全日</span><span class="ev-desc">兩日全日海上巡遊 Days at Sea</span></span></li>
-              <li class="ev"><span class="ev-ic">🎭</span><span class="ev-main"><span class="ev-time">節目</span><span class="ev-desc">欣賞百老匯級音樂劇，然後跳進閃亮泳池暢泳</span></span></li>
-              <li class="ev"><span class="ev-ic">🎡</span><span class="ev-main"><span class="ev-time">玩樂</span><span class="ev-desc">兒童、青少年及成人專屬場地；泳池、水上滑梯</span></span></li>
-              <li class="ev"><span class="ev-ic">📱</span><span class="ev-main"><span class="ev-time">提示</span><span class="ev-desc">留意 <b>Disney Cruise Line Navigator App</b> 內每日活動及表演時間，記得預早留位</span></span></li>
-            </ul>
+            <div class="dsw" role="tablist" aria-label="選擇日子">
+              <button class="dsw-b on" data-dp="dp-a" aria-pressed="true">Day 3<small>8月11日 · 二</small></button>
+              <button class="dsw-b" data-dp="dp-b" aria-pressed="false">Day 4<small>8月12日 · 三</small></button>
+            </div>
+
+            <div class="dpane on" id="dp-a">
+              <ul class="sched">
+                <li class="ev"><span class="ev-ic">🌊</span><span class="ev-main"><span class="ev-time">全日</span><span class="ev-desc">海上巡遊 Day at Sea<span class="in">郵輪 Day 2</span></span></span></li>
+                <li class="ev"><span class="ev-ic">🥂</span><span class="ev-main"><span class="ev-time">17:00</span><span class="ev-desc">Pre-dinner time — 甲板日落 · 泳池 · 酒吧</span></span></li>
+                <li class="ev food"><span class="ev-ic">🍽️</span><span class="ev-main"><span class="ev-time">20:15</span><span class="ev-desc">晚餐 Dinner<span class="in">已確認</span></span></span></li>
+                <li class="ev"><span class="ev-ic">📱</span><span class="ev-main"><span class="ev-time">提示</span><span class="ev-desc">今日暫未有預訂節目 — 於 <b>Navigator App</b> 睇當日活動再定</span></span></li>
+              </ul>
+            </div>
+
+            <div class="dpane" id="dp-b">
+              <ul class="sched">
+                <li class="ev"><span class="ev-ic">🌊</span><span class="ev-main"><span class="ev-time">全日</span><span class="ev-desc">海上巡遊 Day at Sea<span class="in">郵輪 Day 3</span></span></span></li>
+                <li class="ev"><span class="ev-ic">🥂</span><span class="ev-main"><span class="ev-time">17:00</span><span class="ev-desc">Pre-dinner time — 甲板日落 · 泳池 · 酒吧</span></span></li>
+                <li class="ev"><span class="ev-ic">🎭</span><div class="ev-main"><span class="ev-time">18:00</span><div class="ev-desc">《Remember》現場表演 · Walt Disney Theatre<span class="in">已確認</span><details class="ev-note inline"><summary>📖 詳情</summary><div class="ev-note-body">🎫 <b>Remember（Live Show）</b><br>📍 Walt Disney Theatre<br>🕕 18:00 開始 · <b>全長 1 小時</b><br><br>💡 約 19:00 完場，啱啱好返房換衫，再去 <b>20:15 晚餐</b>。建議提早 15–20 分鐘入場搵好位。</div></details></div></div></li>
+                <li class="ev food"><span class="ev-ic">🍽️</span><span class="ev-main"><span class="ev-time">20:15</span><span class="ev-desc">晚餐 Dinner<span class="in">已確認</span></span></span></li>
+                <li class="ev"><span class="ev-ic">📱</span><span class="ev-main"><span class="ev-time">提示</span><span class="ev-desc">留意 <b>Navigator App</b> 內其他活動，記得預早留位</span></span></li>
+              </ul>
+            </div>
           </div></div></div>
         </div>
       </article>
 
       <!-- DAY 5 -->
-      <article class="day d4 open">
+      <article id="day-4" class="day d4 open">
         <div class="card">
           <button class="day-head" aria-expanded="true">
             <span class="badge"><small>DAY</small><b>5</b></span>
@@ -468,7 +524,7 @@
       </article>
 
       <!-- DAY 6 -->
-      <article class="day d5 open">
+      <article id="day-5" class="day d5 open">
         <div class="card">
           <button class="day-head" aria-expanded="true">
             <span class="badge"><small>DAY</small><b>6</b></span>
@@ -719,18 +775,79 @@
       var z=(Math.random()*1.8+1).toFixed(1);s.style.width=z+'px';s.style.height=z+'px';
       s.style.animationDelay=(Math.random()*3.5).toFixed(2)+'s';f.appendChild(s);}sky.appendChild(f);})();
 
-  // countdown
-  (function(){var target=new Date('2026-08-09T09:05:00+08:00').getTime();
+  // countdown → switches to live "Day X" once the trip starts
+  (function(){
+    var target=new Date('2026-08-09T09:05:00+08:00').getTime();
+    // trip days (SGT). d3 covers Aug 11-12.
+    var DAYS=[
+      {id:'day-1',num:'1',date:'8月9日 · 星期日',title:'抵達新加坡',from:'2026-08-09',to:'2026-08-09'},
+      {id:'day-2',num:'2',date:'8月10日 · 星期一',title:'登船日',from:'2026-08-10',to:'2026-08-10'},
+      {id:'day-3',num:'3-4',date:'8月11–12日',title:'海上巡遊',from:'2026-08-11',to:'2026-08-12'},
+      {id:'day-4',num:'5',date:'8月13日 · 星期四',title:'回到新加坡',from:'2026-08-13',to:'2026-08-13'},
+      {id:'day-5',num:'6',date:'8月14日 · 星期五',title:'返回香港',from:'2026-08-14',to:'2026-08-14'}
+    ];
     function pad(n){return n<10?'0'+n:''+n;}
-    function tick(){var diff=target-Date.now();
-      if(diff<=0){document.getElementById('cd-d').textContent='0';document.getElementById('cd-h').textContent='00';
-        document.getElementById('cd-m').textContent='00';document.getElementById('cd-s').textContent='00';
-        var l=document.getElementById('cd-label');if(l)l.textContent='旅程進行中 · 旅途愉快！';return;}
+    // today's date string in Singapore time (UTC+8)
+    function sgToday(){
+      var d=new Date(Date.now()+8*3600000);
+      return d.getUTCFullYear()+'-'+pad(d.getUTCMonth()+1)+'-'+pad(d.getUTCDate());
+    }
+    function current(){
+      var t=sgToday();
+      for(var i=0;i<DAYS.length;i++){if(t>=DAYS[i].from&&t<=DAYS[i].to)return DAYS[i];}
+      return null;
+    }
+    var cd=document.getElementById('cd'),
+        lab=document.getElementById('cd-label'),
+        btn=document.getElementById('today');
+
+    function showToday(day){
+      if(cd) cd.hidden=true;
+      document.getElementById('t-num').textContent=day.num;
+      document.getElementById('t-date').textContent=day.date;
+      document.getElementById('t-title').textContent=day.title;
+      btn.hidden=false;
+      btn.setAttribute('aria-label','跳到 Day '+day.num+' '+day.title);
+      if(lab) lab.textContent='旅程進行中 · 撳一下睇今日行程';
+      btn.onclick=function(){
+        var card=document.getElementById(day.id);
+        if(!card) return;
+        // make sure the itinerary tab is active first
+        var t1=document.getElementById('tab-1');
+        if(t1&&!t1.classList.contains('active')) t1.click();
+        card.classList.add('open');
+        var h=card.querySelector('.day-head');
+        if(h) h.setAttribute('aria-expanded','true');
+        setTimeout(function(){
+          var bar=document.querySelector('.tabs-wrap');
+          var off=bar?bar.getBoundingClientRect().height+10:0;
+          var y=card.getBoundingClientRect().top+window.scrollY-off;
+          window.scrollTo({top:y,behavior:'smooth'});
+          card.classList.add('flash');
+          setTimeout(function(){card.classList.remove('flash');},1600);
+        },60);
+      };
+    }
+
+    function tick(){
+      var diff=target-Date.now();
+      if(diff<=0){
+        var day=current();
+        if(day){showToday(day);}
+        else{
+          if(cd) cd.hidden=true;
+          if(btn) btn.hidden=true;
+          if(lab) lab.textContent='旅程已完成 · 多謝有你哋一齊 ✦';
+        }
+        return;
+      }
       document.getElementById('cd-d').textContent=Math.floor(diff/86400000);
       document.getElementById('cd-h').textContent=pad(Math.floor(diff%86400000/3600000));
       document.getElementById('cd-m').textContent=pad(Math.floor(diff%3600000/60000));
-      document.getElementById('cd-s').textContent=pad(Math.floor(diff%60000/1000));}
-    tick();setInterval(tick,1000);})();
+      document.getElementById('cd-s').textContent=pad(Math.floor(diff%60000/1000));
+    }
+    tick();setInterval(tick,1000);
+  })();
 
   // tabs
   (function(){var tabs=[].slice.call(document.querySelectorAll('.tab'));
@@ -751,6 +868,21 @@
   (function(){var btns=[].slice.call(document.querySelectorAll('.bp-btn'));var bs=[].slice.call(document.querySelectorAll('.boarding'));
     btns.forEach(function(b){b.addEventListener('click',function(){btns.forEach(function(x){x.classList.remove('active');});b.classList.add('active');
       var id=b.getAttribute('data-bp');bs.forEach(function(x){x.classList.toggle('active',x.id===id);});});});})();
+
+  // Day 3 / Day 4 switcher
+  (function(){
+    var bs=[].slice.call(document.querySelectorAll('.dsw-b'));
+    var ps=[].slice.call(document.querySelectorAll('.dpane'));
+    bs.forEach(function(b){
+      b.addEventListener('click',function(e){
+        e.stopPropagation();
+        bs.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+        b.classList.add('on');b.setAttribute('aria-pressed','true');
+        var id=b.getAttribute('data-dp');
+        ps.forEach(function(p){p.classList.toggle('on',p.id===id);});
+      });
+    });
+  })();
 
   // restaurant map toggle
   (function(){var bs=[].slice.call(document.querySelectorAll('.rst-btn'));var ps=[].slice.call(document.querySelectorAll('.rst-pane'));
