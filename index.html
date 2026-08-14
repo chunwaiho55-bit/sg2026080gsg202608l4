@@ -82,9 +82,9 @@
   /* ---------- TABS ---------- */
   .tabs-wrap{position:sticky;top:0;z-index:40;background:rgba(251,246,236,.94);backdrop-filter:blur(10px);
     padding:.65rem 1rem;border-bottom:1px solid rgba(231,222,208,.75);box-shadow:0 6px 18px -16px rgba(11,32,56,.5)}
-  .tabs{max-width:560px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:.35rem;
+  .tabs{max-width:600px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:.3rem;
     background:#fff;border:1px solid var(--line);border-radius:999px;padding:.3rem;box-shadow:var(--shadow-sm)}
-  .tab{font-family:var(--f-body);font-weight:700;font-size:.85rem;color:var(--ink-soft);cursor:pointer;white-space:nowrap;
+  .tab{font-family:var(--f-body);font-weight:700;font-size:.8rem;color:var(--ink-soft);cursor:pointer;white-space:nowrap;
     border:0;background:transparent;border-radius:999px;padding:.6rem .25rem;transition:color .2s,background .25s;letter-spacing:.01em}
   .tab.active{color:#fff;background:linear-gradient(140deg,var(--navy-700),var(--teal));box-shadow:0 6px 14px -6px rgba(21,50,60,.6)}
   .tab:active{transform:scale(.97)}
@@ -300,6 +300,87 @@
   .warn li::before{content:"•";position:absolute;left:.1rem;color:var(--coral);font-weight:700}
   .warn li b{color:#c1543c}
 
+
+  /* ---------- FEEDBACK (旅程心聲) ---------- */
+  .fb-who{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;max-width:420px;margin:0 auto 1.2rem}
+  .fb-who-b{font-family:var(--f-body);font-weight:700;font-size:.92rem;color:var(--ink-soft);cursor:pointer;
+    background:#fff;border:1px solid var(--line);border-radius:999px;padding:.7rem .4rem;
+    transition:background .25s,color .2s,border-color .2s,transform .12s}
+  .fb-who-b .em{margin-right:.3rem}
+  .fb-who-b.on{color:#fff;background:linear-gradient(140deg,var(--navy-700),var(--teal));border-color:transparent;
+    box-shadow:0 8px 18px -10px rgba(21,50,60,.75)}
+  .fb-who-b:active{transform:scale(.97)}
+  .fb-form{display:none}.fb-form.on{display:block;animation:fade .35s ease}
+
+  .fb-card{background:var(--paper);border-radius:22px;box-shadow:var(--shadow);
+    border:1px solid rgba(11,32,56,.06);overflow:hidden;position:relative}
+  .fb-head{background:linear-gradient(130deg,#1c4a6e,#12294a);color:#fff;padding:1rem 1.15rem;position:relative;overflow:hidden}
+  /* 外母 · 粉紅版 */
+  .fb-form[data-form="ma"] .fb-head{background:linear-gradient(130deg,#d4699a,#a83f77)}
+  .fb-form[data-form="ma"] .fb-head::after{color:#ffe0ef}
+  .fb-form[data-form="ma"] .fb-head small{color:#ffd6e8}
+  .fb-form[data-form="ma"] .fb-card{border-color:rgba(212,105,154,.18)}
+  .fb-form[data-form="ma"] .fb-q-t{color:#a83f77}
+  .fb-form[data-form="ma"] .fb-submit{background:linear-gradient(140deg,#e485b0,#c25890);
+    box-shadow:0 10px 22px -12px rgba(194,88,144,.9)}
+  .fb-form[data-form="ma"] .fb-seal{background:linear-gradient(180deg,#fdeef5,#f9e0ec);border-color:#f2c9dd}
+  .fb-form[data-form="ma"] .fb-seal b{color:#a83f77}
+  .fb-form[data-form="ma"] .fb-seal small{color:#b06a90}
+  .fb-form[data-form="ma"] .stars-lab b{color:#c25890}
+  .fb-who-b[data-who="ma"].on{background:linear-gradient(140deg,#c25890,#a83f77);
+    box-shadow:0 8px 18px -10px rgba(168,63,119,.75)}
+  .fb-head::after{content:"✦";position:absolute;right:1rem;top:.7rem;color:var(--gold-soft);font-size:1.4rem;opacity:.65}
+  .fb-head b{font-size:1.05rem;font-weight:700}
+  .fb-head small{display:block;font-family:var(--f-disp);font-size:.66rem;color:var(--teal-bright);letter-spacing:.14em;text-transform:uppercase;margin-top:.15rem}
+  .fb-body{padding:1rem 1.15rem 1.2rem}
+
+  .fb-q{padding:.7rem 0;border-bottom:1px dashed var(--line)}
+  .fb-q:last-of-type{border-bottom:0}
+  .fb-q-t{font-weight:700;font-size:.95rem;color:var(--navy-800);margin-bottom:.45rem;display:flex;align-items:center;gap:.4rem}
+  .fb-q-t .em{font-size:1.1rem}
+  .fb-stars{display:flex;gap:.3rem;position:static;pointer-events:auto}
+  .star-b{background:none;border:0;cursor:pointer;font-size:1.75rem;line-height:1;padding:.35rem .3rem;min-width:44px;min-height:44px;
+    filter:grayscale(1) opacity(.32);transition:filter .18s,transform .15s}
+  .star-b.lit{filter:none;transform:scale(1.06)}
+  .star-b:active{transform:scale(.9)}
+  .stars-lab{font-size:.74rem;color:var(--mist);margin-top:.3rem;min-height:1.1em}
+  .stars-lab b{color:var(--gold);font-weight:700}
+
+  .yn{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:.15rem}
+  .yn-b{font-family:var(--f-body);font-weight:700;font-size:.88rem;color:var(--ink-soft);cursor:pointer;
+    background:#fff;border:1px solid var(--line);border-radius:14px;padding:.6rem .3rem;transition:all .2s}
+  .yn-b.on{color:#fff;border-color:transparent}
+  .yn-b[data-v="yes"].on{background:linear-gradient(140deg,#3f9d76,#2e8460)}
+  .yn-b[data-v="no"].on{background:linear-gradient(140deg,var(--coral),#d55f49)}
+  .yn-b:active{transform:scale(.97)}
+
+  .fb-total{display:flex;align-items:baseline;justify-content:center;gap:.4rem;margin-top:.9rem;
+    background:linear-gradient(180deg,#fbf7ee,#f6efe2);border:1px solid var(--line);border-radius:14px;padding:.6rem}
+  .fb-total span{font-size:.8rem;color:var(--mist);font-weight:700}
+  .fb-total b{font-family:var(--f-disp);font-weight:700;font-size:1.5rem;color:var(--navy-800);line-height:1}
+  .fb-total small{font-size:.78rem;color:var(--mist)}
+  .fb-total.full{background:linear-gradient(180deg,#fdf6e6,#f9edd6);border-color:#f0dcb4}
+  .fb-total.full b{color:#c9820c}
+  .fb-form[data-form="ma"] .fb-total.full{background:linear-gradient(180deg,#fdeef5,#f9e0ec);border-color:#f2c9dd}
+  .fb-form[data-form="ma"] .fb-total.full b{color:#c25890}
+
+  .fb-submit{width:100%;margin-top:1.1rem;font-family:var(--f-body);font-weight:700;font-size:.95rem;color:#fff;
+    background:linear-gradient(140deg,var(--gold),#dd9a1c);border:0;border-radius:999px;padding:.85rem;cursor:pointer;
+    box-shadow:0 10px 22px -12px rgba(221,154,28,.9);transition:transform .12s,opacity .2s}
+  .fb-submit:active{transform:scale(.98)}
+  .fb-submit:disabled{opacity:.45;cursor:not-allowed;box-shadow:none}
+  .fb-warn{font-size:.74rem;color:var(--mist);text-align:center;margin-top:.55rem;line-height:1.5}
+
+  /* locked / saved state */
+  .fb-locked .fb-body{opacity:.97}
+  .fb-locked .star-b,.fb-locked .yn-b{pointer-events:none}
+  .fb-seal{display:flex;align-items:center;gap:.6rem;background:linear-gradient(180deg,#fdf6e6,#f9edd6);
+    border:1px solid #f0dcb4;border-radius:14px;padding:.7rem .8rem;margin-top:1rem}
+  .fb-seal .em{font-size:1.4rem}
+  .fb-seal b{display:block;font-size:.88rem;color:#a4611f}
+  .fb-seal small{font-size:.72rem;color:#8a5a2b}
+  .fb-note{text-align:center;font-size:.78rem;color:var(--ink-soft);margin-top:1.2rem;line-height:1.6}
+
   /* ---------- FOOTER ---------- */
   footer{text-align:center;padding:2.8rem 1.25rem 3.2rem}
   .foot-star{color:var(--gold);letter-spacing:.5em;font-size:.9rem}
@@ -391,6 +472,7 @@
     <button class="tab active" role="tab" id="tab-1" aria-selected="true"  aria-controls="panel-itinerary" data-panel="panel-itinerary">行程表</button>
     <button class="tab"        role="tab" id="tab-2" aria-selected="false" aria-controls="panel-info"      data-panel="panel-info">旅程資料</button>
     <button class="tab"        role="tab" id="tab-3" aria-selected="false" aria-controls="panel-sg"        data-panel="panel-sg">新加坡資料</button>
+    <button class="tab"        role="tab" id="tab-4" aria-selected="false" aria-controls="panel-fb"      data-panel="panel-fb">✨ 旅程心聲</button>
   </div>
 </div>
 
@@ -811,6 +893,28 @@
   </div>
 </section>
 
+
+<!-- ===== PANEL D · 旅程心聲 ===== -->
+<section id="panel-fb" class="panel" role="tabpanel" aria-labelledby="tab-4">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kk">Share the Magic</p>
+      <h2>旅程心聲</h2>
+      <p>畀幾粒星今次旅程？✦</p>
+    </div>
+
+    <div class="fb-who" role="tablist" aria-label="選擇填寫人">
+      <button class="fb-who-b on" data-who="pa" aria-pressed="true"><span class="em">👴</span>外父心聲</button>
+      <button class="fb-who-b" data-who="ma" aria-pressed="false"><span class="em">👵</span>外母心聲</button>
+    </div>
+
+    <div class="fb-form on" data-form="pa"></div>
+    <div class="fb-form" data-form="ma"></div>
+
+    <p class="fb-note">✦ 每人只可提交一次，確認後永久保存、不能更改 ✦</p>
+  </div>
+</section>
+
 <footer>
   <div class="foot-star">✦ ✦ ✦</div>
   <h3>祝一家四口旅途愉快</h3>
@@ -931,6 +1035,156 @@
         b.classList.add('on');b.setAttribute('aria-pressed','true');
         var id=b.getAttribute('data-dp');
         ps.forEach(function(p){p.classList.toggle('on',p.id===id);});
+      });
+    });
+  })();
+
+
+  // ---------- 旅程心聲 feedback ----------
+  (function(){
+    var WHO={pa:{em:'👴',name:'外父'},ma:{em:'👵',name:'外母'}};
+    var ITEMS=[{k:'overall',em:'✨',t:'整體'},{k:'fun',em:'🎢',t:'玩樂'},
+               {k:'stay',em:'🏨',t:'住宿'},{k:'food',em:'🍽️',t:'飲食'}];
+    var LABELS={1:'有待改善',2:'一般',3:'滿意',4:'好滿意',5:'非常滿意'};
+
+    function key(w){return 'fb:'+w;}
+
+    function render(w){
+      var host=document.querySelector('.fb-form[data-form="'+w+'"]');
+      if(!host) return;
+      host.innerHTML='<div class="fb-card"><div class="fb-head"><b>'+WHO[w].em+' '+WHO[w].name+'心聲</b>'
+        +'<small>Family Voyage 2026</small></div><div class="fb-body" data-body></div></div>';
+      var body=host.querySelector('[data-body]');
+
+      ITEMS.forEach(function(it){
+        var q=document.createElement('div');q.className='fb-q';
+        q.innerHTML='<div class="fb-q-t"><span class="em">'+it.em+'</span>'+it.t+'</div>'
+          +'<div class="fb-stars" data-k="'+it.k+'" role="group" aria-label="'+it.t+' 評分"></div>'
+          +'<div class="stars-lab" data-lab="'+it.k+'"></div>';
+        var row=q.querySelector('.fb-stars');
+        for(var n=1;n<=5;n++){
+          var b=document.createElement('button');
+          b.className='star-b';b.type='button';b.textContent='⭐';
+          b.setAttribute('data-n',n);b.setAttribute('aria-label',n+' 分');
+          row.appendChild(b);
+        }
+        body.appendChild(q);
+      });
+
+      var yq=document.createElement('div');yq.className='fb-q';
+      yq.innerHTML='<div class="fb-q-t"><span class="em">💌</span>你會介紹其他親戚一齊參加？</div>'
+        +'<div class="yn" data-yn><button class="yn-b" type="button" data-v="yes">👍 會呀！</button>'
+        +'<button class="yn-b" type="button" data-v="no">🤔 未必</button></div>';
+      body.appendChild(yq);
+
+      var tot=document.createElement('div');
+      tot.className='fb-total';tot.setAttribute('data-total','');
+      tot.innerHTML='<span>總分</span><b>0</b><small>/ 20 ⭐</small>';
+      body.appendChild(tot);
+
+      var sub=document.createElement('button');
+      sub.className='fb-submit';sub.type='button';sub.disabled=true;
+      sub.textContent='✦ 確認提交';
+      body.appendChild(sub);
+      var warn=document.createElement('p');
+      warn.className='fb-warn';warn.textContent='提交後永久保存，不能再更改';
+      body.appendChild(warn);
+
+      var state={scores:{},rec:null},locked=false;
+
+      body.addEventListener('click',function(e){
+        if(locked) return;
+        var st=e.target.closest('.star-b');
+        if(st){
+          var row=st.parentNode,k=row.getAttribute('data-k'),n=+st.getAttribute('data-n');
+          state.scores[k]=n;
+          [].forEach.call(row.children,function(b,i){b.classList.toggle('lit',i<n);});
+          body.querySelector('[data-lab="'+k+'"]').innerHTML=n+' 分 · <b>'+LABELS[n]+'</b>';
+          check();return;
+        }
+        var yb=e.target.closest('.yn-b');
+        if(yb){
+          state.rec=yb.getAttribute('data-v');
+          [].forEach.call(yb.parentNode.children,function(b){b.classList.toggle('on',b===yb);});
+          check();return;
+        }
+        if(e.target===sub){save();}
+      });
+
+      function total(){
+        return ITEMS.reduce(function(a,it){return a+(state.scores[it.k]||0);},0);
+      }
+      function check(){
+        var t=total();
+        var el=body.querySelector('[data-total] b');
+        if(el) el.textContent=t;
+        tot.classList.toggle('full',t===20);
+        var ok=ITEMS.every(function(it){return state.scores[it.k];})&&state.rec;
+        sub.disabled=!ok;
+      }
+
+      function save(){
+        if(!confirm('確認提交？\n提交後永久保存，不能再更改。')) return;
+        var data={scores:state.scores,rec:state.rec,at:new Date().toISOString()};
+        sub.disabled=true;sub.textContent='儲存中…';
+        function done(){lock(data);}
+        function fail(){
+          sub.disabled=false;sub.textContent='✦ 確認提交';
+          alert('儲存唔到，請檢查網絡後再試一次。');
+        }
+        if(window.storage&&window.storage.set){
+          window.storage.set(key(w),JSON.stringify(data)).then(done).catch(fail);
+        }else{ fail(); }
+      }
+
+      function lock(d){
+        var card=host.querySelector('.fb-card');
+        if(locked) return;
+        locked=true;
+        card.classList.add('fb-locked');
+        sub.remove();warn.remove();
+        ITEMS.forEach(function(it){
+          var row=body.querySelector('.fb-stars[data-k="'+it.k+'"]');
+          var n=d.scores[it.k]||0;
+          [].forEach.call(row.children,function(b,i){b.classList.toggle('lit',i<n);});
+          body.querySelector('[data-lab="'+it.k+'"]').innerHTML=n+' 分 · <b>'+LABELS[n]+'</b>';
+        });
+        [].forEach.call(body.querySelector('[data-yn]').children,function(b){
+          b.classList.toggle('on',b.getAttribute('data-v')===d.rec);});
+        var sum=ITEMS.reduce(function(a,it){return a+(d.scores[it.k]||0);},0);
+        var te=body.querySelector('[data-total]');
+        if(te){te.querySelector('b').textContent=sum;te.classList.toggle('full',sum===20);}
+        var seal=document.createElement('div');
+        seal.className='fb-seal';
+        var t=d.at?new Date(d.at):new Date();
+        seal.innerHTML='<span class="em">🔒</span><span><b>已提交 · 永久保存</b>'
+          +'<small>'+t.getFullYear()+'年'+(t.getMonth()+1)+'月'+t.getDate()+'日 · 多謝你嘅心聲 ✦</small></span>';
+        body.appendChild(seal);
+      }
+
+      // restore if already submitted (retry until storage API is ready)
+      var tries=0;
+      (function restore(){
+        if(!window.storage||!window.storage.get){
+          if(tries++<40){setTimeout(restore,150);}
+          return;
+        }
+        window.storage.get(key(w)).then(function(r){
+          if(r&&r.value){ try{lock(JSON.parse(r.value));}catch(e){} }
+        }).catch(function(){});
+      })();
+    }
+
+    Object.keys(WHO).forEach(render);
+
+    var wbs=[].slice.call(document.querySelectorAll('.fb-who-b'));
+    var fms=[].slice.call(document.querySelectorAll('.fb-form'));
+    wbs.forEach(function(b){
+      b.addEventListener('click',function(){
+        wbs.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+        b.classList.add('on');b.setAttribute('aria-pressed','true');
+        var w=b.getAttribute('data-who');
+        fms.forEach(function(f){f.classList.toggle('on',f.getAttribute('data-form')===w);});
       });
     });
   })();
